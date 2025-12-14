@@ -1,0 +1,182 @@
+<style>
+
+  
+.values-section h3{
+  color: #006844;
+}
+
+.values-grid {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.value-item {
+    text-align: center;
+    font-size: 20px;
+}
+
+.value-circle {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: auto;
+}
+
+.value-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    z-index: 2;
+    position: relative;
+}
+
+.value-circle::before {
+    content: "";
+    position: absolute;
+
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+
+    border: 30px solid transparent;
+    border-top-color: #98CB66;
+
+    top: 50%;
+    left: 48%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.7s ease;
+    z-index: 1;
+}
+
+.start-1::before {
+    transform: translate(-50%, -50%) rotate(270deg);
+}
+.start-2::before {
+    top: 48%;
+    transform: translate(-50%, -50%) rotate(-40deg);
+}
+.start-3::before {
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.start-1:hover::before {
+    transform: translate(-50%, -50%) rotate(200deg);
+}
+
+.start-2:hover::before {
+    transform: translate(-50%, -50%) rotate(50deg);
+}
+
+.start-3:hover::before {
+    transform: translate(-50%, -50%) rotate(130deg);
+}
+
+@media (max-width: 1240px) {
+    .value-circle {
+        width: 250px;
+        height: 250px;
+    }
+    .value-circle::before {
+        width: 280px;
+        height: 280px;
+    }
+    .value-circle::before{
+      width: 200px;
+      height: 200px;
+    }
+}
+
+@media (max-width: 975px) {
+    .value-circle {
+        width: 200px;
+        height: 200px;
+    }
+    .value-circle::before {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .values-grid {
+        position: relative;
+        width: 100%;
+        height: 270px;
+        overflow: hidden;
+    }
+
+    .value-item {
+        position: absolute;
+        top: 50%;
+        left: 120%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        animation: swipeCarousel 12s ease-in-out infinite;
+        width: 100%;
+    }
+
+    .value-circle {
+        width: 200px;
+        height: 200px;
+    }
+
+    .value-circle::before {
+        width: 150px;
+        height: 150px;
+    }
+
+    .value-item h3 {
+        width: 300px;
+        margin: 0 auto;
+    }
+
+    .value-item:nth-child(1) {
+        animation-delay: 0s;
+    }
+    .value-item:nth-child(2) {
+        animation-delay: 4s;
+    }
+    .value-item:nth-child(3) {
+        animation-delay: 8s;
+    }
+}
+
+/* Carousel animation */
+@keyframes swipeCarousel {
+    0% { left: 120%; opacity: 0; }
+    8% { left: 50%; opacity: 1; }
+    25% { left: 50%; opacity: 1; }
+    33% { left: -20%; opacity: 0; }
+    100% { left: -20%; opacity: 0; }
+}
+
+
+</style>
+
+<div class="values-grid">
+  <div class="value-item">
+    <div class="value-circle start-1">
+      <img src="/common_elements/guiltFree.png" alt="" />
+    </div>
+    <h3>Guilt-Free</h3>
+  </div>
+
+  <div class="value-item">
+    <div class="value-circle start-2">
+      <img src="/common_elements/healthyPic.png" alt="" />
+    </div>
+    <h3>Healthy</h3>
+  </div>
+
+  <div class="value-item">
+    <div class="value-circle start-3">
+      <img src="/common_elements/caloriePic.png" alt="" />
+    </div>
+    <h3>Calorie-Counted</h3>
+  </div>
+</div>

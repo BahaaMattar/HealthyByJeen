@@ -156,116 +156,31 @@
 
         .values-section h2 {
             text-align: center;
-            font-size: 40px;
-            margin-bottom: 10px;
+            font-size: 58px;
+            margin-bottom: -10px;
         }
 
         .values-subtitle {
             text-align: center;
-            font-size: 20px;
+            font-size: 26px;
             margin-bottom: 50px;
         }
 
-        .values-grid {
-            display: flex;
-            justify-content: center;
-            gap: 60px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .value-item {
-            text-align: center;
-            font-size: 20px;
-        }
-
-        
-        @media (max-width: 1240px) {
-            .value-circle img {
-                width: 250px;
-            }
-        }
-
-        @media (max-width: 975px) {
-            .value-circle img {
-                width: 200px;
-            }
-            
-            .values-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
         @media (max-width: 768px) {
-            .values-grid {
-                position: relative;
-                width: 100%;
-                height: 250px;
-                overflow: hidden;
-            }
-
-            .value-item {
-                position: absolute;
-                top: 50%;
-                left: 120%;
-                transform: translate(-50%, -50%);
-                opacity: 0;
-                animation: swipeCarousel 12s ease-in-out infinite;
-            }
-
-            .value-item h3{
-                width: 300px;
-            }
-
-            .value-item:nth-child(1) {
-                animation-delay: 0s;
-            }
-
-            .value-item:nth-child(2) {
-                animation-delay: 4s;
-            }
-
-            .value-item:nth-child(3) {
-                animation-delay: 8s;
-            }
-
-            .value-circle img {
-                width: 200px;
-            }
+        .values-subtitle{
+            font-size: 16px;
+        }
+        .values-section h2{
+            font-size: 32px;
+        }
         }
 
-        /* Define keyframes outside the media query for better browser support */
-        @keyframes swipeCarousel {
-            0% {
-                left: 120%;
-                opacity: 0;
-                transform: translate(-50%, -50%);
-            }
-            8% {
-                left: 50%;
-                opacity: 1;
-                transform: translate(-50%, -50%);
-            }
-            25% {
-                left: 50%;
-                opacity: 1;
-                transform: translate(-50%, -50%);
-            }
-            33% {
-                left: -20%;
-                opacity: 0;
-                transform: translate(-50%, -50%);
-            }
-            100% {
-                left: -20%;
-                opacity: 0;
-                transform: translate(-50%, -50%);
-            }
+        @media (max-width: 480px) {
+        .values-section h2{
+            font-size: 28px;
         }
 
-
-
-
+        }
 
         /* Best Sellers Section */
         .best-sellers {
@@ -274,14 +189,15 @@
         }
 
         .best-sellers h1 {
-            font-size: 40px;
+            font-size: 58px;
+            margin-bottom: -10px;
             color: #006844;
         }
 
         .best-sellers-subtitle {
             color: #006844;
             margin-bottom: 30px;
-            font-size: 18px;
+            font-size: 26px;
             font-weight: 500;
         }
 
@@ -307,11 +223,10 @@
             transition: all 0.3s;
         }
 
-        /* .filter-tab.active {
+        .filter-tab.active {
             background: #98CB66;
             color: white;
-            border-color: #98CB66;
-        } */
+        }
 
         .filter-tab:hover {
             background: #98CB66;
@@ -330,6 +245,7 @@
         .product-card {
             text-align: left;
             position: relative;
+            transition: opacity 0.3s ease, transform 0.3s ease;
         }
 
         .product-card img {
@@ -386,6 +302,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+
+        .best-sellers .cta-button {
+            margin-top: 40px;
         }
         /* Tablet */
         @media (max-width: 1024px) {
@@ -509,6 +429,7 @@
         .story-left h2 {
             font-size: 56px;
             line-height: 1.2;
+            margin-left: 60px;
         }
 
         .story-left {
@@ -535,6 +456,7 @@
 
         .story-image-wrap img {
             height: 400px;
+            width: 700px;
         }
 
 
@@ -548,14 +470,15 @@
             margin-right: 20px;
         }
 
-         @media (max-width: 1290px) {
-            .story-image-wrap {
-                top: 0px;
-            }
-        }
          @media (max-width: 1350px) {
             .story-image-wrap {
                 top: 0px;
+            }
+            .story-image-wrap img {
+                width: 600px;
+            }
+            .story-left h2{
+                top: 50px;
             }
         }
         @media (max-width: 1195px) {
@@ -621,7 +544,7 @@
         }
 
         /* Tablets */
-        @media (max-width: 992px) {
+        /* @media (max-width: 992px) {
             .story-left h2 {
                 font-size: 42px;
             }
@@ -633,22 +556,32 @@
             .story-section > section img {
                 width: 55px;
             }
-        }
+        } */
 
         /* Mobile (stack vertically) */
         @media (max-width: 768px) {
             .story-section {
                 flex-direction: column;
                 text-align: center;
+                justify-content: center;
+            }
+
+            .first_half {
+                width: 100%;
             }
 
             .story-left {
                 justify-content: center;
-                padding: 0;
+                padding: 40px 0px 0px 0px;
             }
 
             .story-left h2 {
                 font-size: 40px;
+                top: 0px;
+                left: -7%;
+            }
+            .story-left h2 br {
+                display: none;
             }
 
             .story-section > section img {
@@ -665,6 +598,7 @@
         @media (max-width: 480px) {
             .story-left h2 {
                 font-size: 32px;
+                left: -10%;
             }
 
             .story-content h3 {
@@ -687,6 +621,7 @@
             text-align: center;
             position: relative;
             background: white;
+            align-items: flex-end;
         }
 
         .subscription-section h2 {
@@ -702,86 +637,135 @@
             line-height: 1.4;
         }
 
-        /* TOP BADGE (Most Popular) */
-        .top-badge {
-            background: #006844;
-            color: white;
-            padding: 10px 35px;
-            border-radius: 25px;
-            font-weight: bold;
-            font-size: 20px;
-            display: inline-block;
-            margin-bottom: 40px;
-        }
-
         .subscription-band {
             position: absolute;
             top: 60%;
             width: 90%;
             height: 100px;
-            background: #006844;
+            background: #98CB66;
             border-radius: 40px;
             z-index: 0;
             transform: translateY(-10px);
         }
+        .plans-slider {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 580px;
+        }
+
 
         /* Cards container */
         .plans-grid {
             display: flex;
-            justify-content: center;
             gap: 40px;
-            position: relative;
-            z-index: 2;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 40px 10px 20px;
+            align-items: flex-end;
+
+            scrollbar-width: none;
+        }
+        .plans-grid::-webkit-scrollbar {
+            display: none; 
+
         }
 
+        .slider-arrow {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            background: #006844;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+            z-index: 5;
+            transition: 0.3s;
+        }
+        .slider-arrow:disabled {
+            opacity: 0;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+
+        .slider-arrow:hover {
+            background: #98CB66;
+        }
+
+        .slider-arrow.left {
+            margin-right: 10px;
+        }
+
+        .slider-arrow.right {
+            margin-left: 10px;
+        }
+
+        /* @media (max-width: 1024px) {
+            .plan-card,
+            .plan-card.popular {
+                min-width: 320px;
+            }
+        } */
         /* Plan Card
         
         /* Non-popular plan cards */
         .plan-card {
             background: white;
-            border-radius: 20px;
-            width: 300px; /* smaller than popular */
+            border-radius: 15px;
+            width: 380px;
+            height: 480px;
+            flex: 0 0 auto;
             padding: 30px 25px;
             text-align: left;
-            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* softer shadow */
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
-            transition: transform 0.3s, box-shadow 0.3s; /* smooth hover effect */
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         /* Popular plan card */
         .plan-card.popular {
-            width: 360px; /* bigger */
-            padding: 45px 35px;
-            box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5); /* intense shadow */
-            transform: scale(1.05); /* slightly bigger visually */
+            width: 450px;
+            height: 530px;
+            flex: 0 0 auto;
+            padding: 15px 45px 35px;
+            box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2);
+            /* transform: scale(1.15); slightly bigger visually */
+            background: #006844;
+            margin-top: -25px;
+
+            .plan-name, .plan-subtitle, .plan-features li {
+                color: #ffffff;
+            }
+            .plan-name{
+                /* font-size: 30px; */
+
+            }
         }
 
-
         .plan-card.popular .plan-badge {
-            position: absolute;
-            top: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #006844;
+            text-align: center;
             color: white;
-            padding: 8px 25px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: bold;
+            font-size: 28px;
+            font-weight: 600;
+
+
         }
 
         .plan-name {
-            font-size: 22px;
+            font-size: 26px;
             color: #006844;
             text-align: center;
-            font-weight: 700;
+            font-weight: 600;
         }
 
         .plan-subtitle {
             color: #006844;
-            font-size: 14px;
+            font-size: 15px;
             text-align: center;
             margin-bottom: 25px;
             font-weight: 600;
@@ -791,7 +775,7 @@
             font-size: 40px;
             text-align: center;
             color: #98CB66;
-            font-weight: 900;
+            font-weight: 600;
             margin-bottom: 5px;
         }
 
@@ -799,17 +783,18 @@
             text-align: center;
             color: #006844;
             margin-bottom: 20px;
+            font-weight: 700;
         }
 
         .save-tag {
             font-size: 13px;
             color: #98CB66;
-            font-weight: bold;
+            font-weight: 500;
         }
 
         .plan-features {
             list-style: none;
-            padding: 0;
+            padding: 0 30px;
             margin: 20px 0 40px;
             flex-grow: 1;
         }
@@ -820,6 +805,8 @@
             padding-left: 22px;
             position: relative;
             font-size: 15px;
+            font-weight: 700;
+            line-height: 10px;
         }
 
         .plan-features li::before {
@@ -849,6 +836,38 @@
             color: #ffffff;
         }
 
+        .slider-controls {
+            display: none;
+        }
+
+        /* Tablet: show 2 cards in viewport */
+        @media (max-width: 1024px) {
+        .plans-slider {
+            overflow: hidden;
+            padding: 0 20px;
+        }
+        .plans-grid {
+            justify-content: flex-start;
+        }
+        }
+
+        /* Mobile: show 1 card in viewport */
+        @media (max-width: 768px) {
+        .plans-slider {
+            overflow: hidden;
+            padding: 0 10px;
+        }
+        .plans-grid {
+            justify-content: flex-start;
+        }
+        }
+        @media (max-width: 550px) {
+            .subscription-section{
+                padding: 80px 10px ;
+            }
+            
+        }
+
         /* Reviews Section*/
        
         .reviews-section {
@@ -876,7 +895,7 @@
         }
         .slider-track-wrapper {
             overflow: hidden;
-            width: 960px; /* 3 cards x 300px + 2*15px gap */
+            width: 960px;
         }
         .slider-track {
             display: flex;
@@ -936,3 +955,12 @@
         .slider-arrow.right {
             margin-left: 20px;
         }
+
+        @media (max-width: 768px) {
+            .slider-arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 22px;
+            }
+        }
+

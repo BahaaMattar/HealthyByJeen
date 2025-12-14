@@ -6,6 +6,14 @@
     <title>Jeen - Healthy Food with Calculated Calories</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="home/style.css">
+
+    <style>
+
+        #common_values_section h3 {
+                color: white;
+            }
+    </style>
+
 </head>
 <body>
     
@@ -45,31 +53,11 @@
         </div>
 
 
-    <h2>Our Values</h2>
-    <p class="values-subtitle">Because What we Stand for matters.</p>
+        <h2>Our Values</h2>
+        <p class="values-subtitle">Because What we Stand for matters.</p>
 
-    <div class="values-grid">
-        <div class="value-item">
-            <div class="value-circle">
-                <img src="home/guilt-free.png" alt="">
-            </div>
-            <h3>Guilt-Free</h3>
-        </div>
+        <div id="common_values_section"></div>
 
-        <div class="value-item">
-            <div class="value-circle">
-                <img src="home/healthy.png" alt="">
-            </div>
-            <h3>Healthy</h3>
-        </div>
-
-        <div class="value-item">
-            <div class="value-circle">
-                <img src="home/calorie-counted.png" alt="">
-            </div>
-            <h3>Calorie-Counted</h3>
-        </div>
-    </div>
 </section>
 
 
@@ -79,10 +67,10 @@
         <p class="best-sellers-subtitle">The favorites everyone comes back for</p>
         
         <div class="filter-tabs">
-            <div class="filter-tab">Sandwiches</div>
-            <div class="filter-tab">Salads</div>
-            <div class="filter-tab active">Desserts</div>
-            <div class="filter-tab">Drinks</div>
+            <div class="filter-tab active" data-category="sandwiches">Sandwiches</div>
+            <div class="filter-tab" data-category="salads">Salads</div>
+            <div class="filter-tab" data-category="desserts">Desserts</div>
+            <div class="filter-tab" data-category="shakers">Shakers</div>
         </div>
 
         <div class="products-grid">
@@ -99,10 +87,10 @@
                 </div>
             </div> -->
 
-            <div class="product-card">
+            <div class="product-card" data-category="sandwiches">
                 <img src="home/OIP (1) (1) 3.png" alt="">
                 <div class="product-info">
-                    <h3 class="product-name">Chia Pudding Parfait</h3>
+                    <h3 class="product-name">Sandwich</h3>
                     <p class="product-description">Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
                     <div class="product-footer">
                         <span class="product-calories">🔥 120 Calories</span>
@@ -110,10 +98,10 @@
                     </div>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" data-category="shakers">
                 <img src="home/OIP (1) (1) 3.png" alt="">
                 <div class="product-info">
-                    <h3 class="product-name">Chia Pudding Parfait</h3>
+                    <h3 class="product-name">Shaker</h3>
                     <p class="product-description">Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
                     <div class="product-footer">
                         <span class="product-calories">🔥 120 Calories</span>
@@ -121,10 +109,21 @@
                     </div>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" data-category="salads">
                 <img src="home/OIP (1) (1) 3.png" alt="">
                 <div class="product-info">
-                    <h3 class="product-name">Chia Pudding Parfait</h3>
+                    <h3 class="product-name">Salad</h3>
+                    <p class="product-description">Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
+                    <div class="product-footer">
+                        <span class="product-calories">🔥 120 Calories</span>
+                        <button class="add-button">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card" data-category="desserts">
+                <img src="home/OIP (1) (1) 3.png" alt="">
+                <div class="product-info">
+                    <h3 class="product-name">Desserts</h3>
                     <p class="product-description">Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
                     <div class="product-footer">
                         <span class="product-calories">🔥 120 Calories</span>
@@ -142,7 +141,7 @@
     <section class="story-section">
         <div class="first_half">
             <div class="story-left">
-                <h2>Our<br>Story</h2>
+                <h2>Our <br>Story</h2>
             </div>
             <section class="story-image-wrap"><img src="home/line.png" alt=""></section>
         </div>
@@ -170,57 +169,64 @@
 
     <div class="subscription-band"></div>
 
-    <div class="plans-grid">
+    <div class="plans-slider">
+    <button class="slider-arrow left">‹</button>
+        <div class="plans-grid" id="plansGrid">
 
-        <div class="plan-card">
-            <h3 class="plan-name">Daily Plan</h3>
-            <p class="plan-subtitle">Perfect for staying on track every day</p>
-            <div class="plan-price">$4.99</div>
-            <p class="plan-period">per day</p>
-            <ul class="plan-features">
-                <li>1 healthy dish delivered</li>
-                <li>Calorie information included</li>
-                <li>Fresh ingredients daily</li>
-                <li>Cancel anytime</li>
-                <li>Macro calculator</li>
-            </ul>
-            <button class="plan-button">Choose Daily Plan</button>
+            <div class="plan-card">
+                    <h3 class="plan-name">Daily Plan</h3>
+                    <p class="plan-subtitle">Perfect for staying on track every day</p>
+                    <div class="plan-price">$4.99</div>
+                    <p class="plan-period">per day</p>
+                    <ul class="plan-features">
+                        <li>1 healthy dish delivered</li>
+                        <li>Calorie information included</li>
+                        <li>Fresh ingredients daily</li>
+                        <li>Cancel anytime</li>
+                        <li>Macro calculator</li>
+                    </ul>
+                    <button class="plan-button">Choose Daily Plan</button>
+            </div>
+
+
+            <div class="plan-card popular">
+                    <h3 class="plan-badge">The Most Popular</h3>
+
+                    <h3 class="plan-name">Weekly Plan</h3>
+                    <p class="plan-subtitle">Perfect for trying our healthy dishes</p>
+                    <div class="plan-price">$29.99</div>
+                    <p class="plan-period">per week</p>
+                    <ul class="plan-features">
+                        <li>7 healthy dishes delivered</li>
+                        <li>Calorie information included</li>
+                        <li>Fresh ingredients daily</li>
+                        <li>Cancel anytime</li>
+                        <li>Macro calculator</li>
+                    </ul>
+                    <button class="plan-button" id="open-weekly">Choose Weekly Plan</button>
+                    <div id="weekly-container"></div>
+            </div>
+
+            <div class="plan-card">
+                    <h3 class="plan-name">Monthly Plan</h3>
+                    <p class="plan-subtitle">Best value for regular healthy eating</p>
+                    <div class="plan-price">$99.99</div>
+                    <p class="plan-period">per month<br><span class="save-tag">Save 15%</span></p>
+                    <ul class="plan-features">
+                        <li>30 healthy dishes delivered</li>
+                        <li>Detailed nutrition tracking</li>
+                        <li>Premium ingredients</li>
+                        <li>Macro calculator</li>
+                        <li>Free nutrition consultation</li>
+                    </ul>
+                    <button class="plan-button secondary">Choose Monthly Plan</button>
+            </div>
+
         </div>
 
-
-        <div class="plan-card popular">
-            <span class="plan-badge">Most Popular</span>
-
-            <h3 class="plan-name">Weekly Plan</h3>
-            <p class="plan-subtitle">Perfect for trying our healthy dishes</p>
-            <div class="plan-price">$29.99</div>
-            <p class="plan-period">per week</p>
-            <ul class="plan-features">
-                <li>7 healthy dishes delivered</li>
-                <li>Calorie information included</li>
-                <li>Fresh ingredients daily</li>
-                <li>Cancel anytime</li>
-                <li>Macro calculator</li>
-            </ul>
-            <button class="plan-button">Choose Weekly Plan</button>
-        </div>
-
-        <div class="plan-card">
-            <h3 class="plan-name">Monthly Plan</h3>
-            <p class="plan-subtitle">Best value for regular healthy eating</p>
-            <div class="plan-price">$99.99</div>
-            <p class="plan-period">per month<br><span class="save-tag">Save 15%</span></p>
-            <ul class="plan-features">
-                <li>30 healthy dishes delivered</li>
-                <li>Detailed nutrition tracking</li>
-                <li>Premium ingredients</li>
-                <li>Macro calculator</li>
-                <li>Free nutrition consultation</li>
-            </ul>
-            <button class="plan-button secondary">Choose Monthly Plan</button>
-        </div>
-
+        <button class="slider-arrow right">›</button>
     </div>
+
 </section>
 
 
@@ -238,11 +244,10 @@
                     <div class="review-header">
                         <div class="name-rating">
                             <div>
-                                <h4 class="reviewer-name">Mohamad</h4>
-                                <p class="review-role">Firefighter</p>
+                                <h4 class="reviewer-name">Karim</h4>
+                                <p class="review-role">Assistant</p>
                             </div>
                             <div class="review-rating">
-                                <img src="home/leaf_icon.png" alt="Leaf" width="20">
                                 <img src="home/leaf_icon.png" alt="Leaf" width="20">
                                 <img src="home/leaf_icon.png" alt="Leaf" width="20">
                                 <img src="home/leaf_icon.png" alt="Leaf" width="20">
@@ -250,7 +255,7 @@
                             </div>
                         </div>
                     </div>
-                    <p class="review-text">Love portions, the quality, consistency and service is considerably great. My go-to for anything healthy.</p>
+                    <p class="review-text">Every dish tastes clean and intentional. I feel good after every meal here.</p>
                 </div>
 
                 <div class="review-card">
@@ -265,22 +270,20 @@
                                 <img src="home/leaf_icon.png" alt="Leaf" width="20">
                                 <img src="home/leaf_icon.png" alt="Leaf" width="20">
                                 <img src="home/leaf_icon.png" alt="Leaf" width="20">
-                                <img src="home/leaf_icon.png" alt="Leaf" width="20">
                             </div>
                         </div>
                     </div>
-                    <p class="review-text">Fresh, flavorful and perfectly portioned. Love their pieces that makes healthy eating exciting.</p>
+                    <p class="review-text">Fresh, flavorful, and actually filling. Finally a place that makes healthy eating exciting.</p>
                 </div>
 
                 <div class="review-card">
                     <div class="review-header">
                         <div class="name-rating">
                             <div>
-                                <h4 class="reviewer-name">Karim</h4>
-                                <p class="review-role">Assistant</p>
+                                <h4 class="reviewer-name">Mohammad</h4>
+                                <p class="review-role">Firefighter</p>
                             </div>
                             <div class="review-rating">
-                                <img src="home/leaf_icon.png" alt="Leaf" width="20">
                                 <img src="home/leaf_icon.png" alt="Leaf" width="20">
                                 <img src="home/leaf_icon.png" alt="Leaf" width="20">
                                 <img src="home/leaf_icon.png" alt="Leaf" width="20">
@@ -288,7 +291,7 @@
                             </div>
                         </div>
                     </div>
-                    <p class="review-text">Every dish tastes clean and nutritious without feeling like a sacrifice. Love every meal here.</p>
+                    <p class="review-text">The portions, the quality, the service , everything is consistently great. My go-to spot now.</p>
                 </div>
 
                 <div class="review-card">
@@ -340,10 +343,14 @@
 
     <script>
         loadHTML("footer", "/common_elements/footer.html");
+
+        loadHTML("common_values_section", "/common_elements/common_values_section.html");
     
-        const track = document.querySelector('.slider-track');
-        const leftBtn = document.querySelector('.slider-arrow.left');
-        const rightBtn = document.querySelector('.slider-arrow.right');
+        const reviewsSection = document.querySelector('.reviews-section');
+    
+        const track = reviewsSection.querySelector('.slider-track');
+        const leftBtn = reviewsSection.querySelector('.slider-arrow.left');
+        const rightBtn = reviewsSection.querySelector('.slider-arrow.right');
 
         const cards = document.querySelectorAll('.review-card');
         const cardWidth = cards[0].offsetWidth + 30; // 300px card + 30px gap
@@ -372,8 +379,126 @@
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
         });
+        
 
 
     </script>
+    <script>
+document.getElementById("open-weekly").addEventListener("click", function() {
+    fetch("home/weekly-plan.html")
+        .then(res => res.text())
+        .then(html => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, "text/html");
+
+            // 1. Get popup HTML
+            const popupHTML = doc.querySelector("#weekly-popup").outerHTML;
+
+            // 2. Get popup CSS
+            const popupStyle = doc.querySelector("style");
+            let popupCSS = "";
+            if (popupStyle) popupCSS = `<style>${popupStyle.innerHTML}</style>`;
+
+            // 3. Insert popup + CSS into container
+            document.getElementById("weekly-container").innerHTML = popupCSS + popupHTML;
+
+            // 4. Re-run internal scripts
+            const scripts = doc.querySelectorAll("script");
+            scripts.forEach(scriptTag => {
+                const newScript = document.createElement("script");
+                newScript.textContent = scriptTag.textContent;
+                document.body.appendChild(newScript);
+            });
+
+            // 5. Show popup
+            document.getElementById("weekly-popup").style.display = "flex";
+        });
+});
+</script>
+<script>
+    const subscriptionSection = document.querySelector('.subscription-section');
+
+    const grid = subscriptionSection.querySelector("#plansGrid");
+    const leftArrow = subscriptionSection.querySelector(".slider-arrow.left");
+    const rightArrow = subscriptionSection.querySelector(".slider-arrow.right");
+
+    function getScrollAmount() {
+        const card = grid.querySelector(".plan-card");
+        const gap = 40;
+        return card ? card.offsetWidth + gap : 0;
+    }
+
+    function updateArrows() {
+        const maxScrollLeft = grid.scrollWidth - grid.clientWidth;
+
+        // If all cards fit, hide both arrows
+        if (maxScrollLeft <= 0) {
+            leftArrow.style.display = "none";
+            rightArrow.style.display = "none";
+            return;
+        } else {
+            leftArrow.style.display = "block";
+            rightArrow.style.display = "block";
+        }
+
+        // Disable left arrow at start
+        leftArrow.disabled = grid.scrollLeft <= 0;
+
+        // Disable right arrow at end
+        rightArrow.disabled = grid.scrollLeft >= maxScrollLeft - 1;
+    }
+
+    leftArrow.addEventListener("click", () => {
+        grid.scrollBy({
+            left: -getScrollAmount(),
+            behavior: "smooth"
+        });
+    });
+
+    rightArrow.addEventListener("click", () => {
+        grid.scrollBy({
+            left: getScrollAmount(),
+            behavior: "smooth"
+        });
+    });
+
+    // Update on scroll + resize
+    grid.addEventListener("scroll", updateArrows);
+    window.addEventListener("resize", updateArrows);
+
+    // Initial check
+    updateArrows();
+</script>
+
+<script>
+    const tabs = document.querySelectorAll('.filter-tab');
+    const products = document.querySelectorAll('.product-card');
+
+    function filterProducts(category) {
+        products.forEach(product => {
+            product.style.display =
+                product.dataset.category === category ? 'block' : 'none';
+        });
+    }
+
+    // 🔹 FILTER ON PAGE LOAD (active tab)
+    const activeTab = document.querySelector('.filter-tab.active');
+    if (activeTab) {
+        filterProducts(activeTab.dataset.category);
+    }
+
+    // 🔹 FILTER ON TAB CLICK
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+
+            filterProducts(tab.dataset.category);
+        });
+    });
+</script>
+
+
+
 </body>
 </html>

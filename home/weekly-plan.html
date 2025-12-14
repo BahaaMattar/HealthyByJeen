@@ -1,0 +1,346 @@
+<style>
+/* Overlay background */
+.popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999;
+}
+
+/* Main card */
+.popup-card {
+    background: #006844;
+    max-width: 550px;
+    width: 90%;
+    /* top: 7%; */
+    height: 80vh;
+    border-radius: 30px;
+    padding: 40px 35px 50px;
+    position: relative;
+    color: white;
+    font-family: "Poppins", sans-serif;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.popup-card::-webkit-scrollbar {
+    width: 8px;
+    margin-right: 20px;
+}
+
+.popup-card::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+}
+
+.popup-card::-webkit-scrollbar-thumb {
+    background: #98CB66;
+    border-radius: 10px;
+}
+
+.corner-img {
+    position: absolute;
+    top: 0;
+    right: -1%;
+    width: 200px;
+    pointer-events: none;
+}
+
+.popup-title {
+    text-align: center;
+    font-size: 26px !important;
+    font-weight: 700 !important;
+    margin: 0px 0px 20px;
+    color: white !important;
+}
+
+.section {
+    margin-bottom: 25px;
+}
+
+.section h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.options-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+}
+
+.options-row input {
+    display: none;
+}
+
+.options-row label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.check-square {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #98CB66;
+    background: #98CB66;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    transition: 0.2s;
+}
+
+.options-row input:checked + label .check-square {
+    color: #006844;
+}
+
+.dropdown {
+    display: none;
+    margin-top: 12px;
+    background: #98CB66;
+    border-radius: 12px;
+    padding: 12px;
+}
+
+.dropdown label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.dropdown input {
+    display: none;
+}
+
+.dropdown input:checked + label .check-square {
+    color: #98CB66;
+}
+
+.dropdown .check-square {    
+    background-color: #006844;
+}
+
+.subscribe-btn {
+    background: #98CB66;
+    color: #006844;
+    font-weight: 700;
+    padding: 12px 30px;
+    border-radius: 20px;
+    border: none;
+    display: block;
+    margin: 25px auto 0;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+.confirmation-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.4s;
+    z-index: 999998;
+}
+
+.confirmation-overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.confirmation-popup {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #98CB66;
+    color: white;
+    padding: 20px 40px;
+    border-radius: 8px;
+    font-size: 24px;
+    font-weight: 700;
+    opacity: 0;
+    transition: 0.4s;
+    z-index: 999999;
+}
+
+.confirmation-popup.show {
+    top: 50%;
+    opacity: 1;
+}
+</style>
+
+<div id="weekly-popup" class="popup-overlay">
+    <div class="popup-card">
+        <img src="home/line2.png" class="corner-img" alt="">
+        <h2 class="popup-title">Weekly Subscription</h2>
+
+        <form id="subscription-form">
+
+            <!-- Meal type -->
+            <div class="section">
+                <h3>Meal type</h3>
+                <div class="options-row">
+                    <input type="checkbox" id="breakfast">
+                    <label for="breakfast"><div class="check-square">✔</div>Breakfast</label>
+
+                    <input type="checkbox" id="lunch">
+                    <label for="lunch"><div class="check-square">✔</div>Lunch</label>
+
+                    <input type="checkbox" id="dinner">
+                    <label for="dinner"><div class="check-square">✔</div>Dinner</label>
+                </div>
+            </div>
+
+            <!-- Protein -->
+            <div class="section">
+                <h3>Protein choice</h3>
+                <div class="options-row">
+                    <input type="checkbox" id="chicken">
+                    <label for="chicken"><div class="check-square">✔</div>Chicken</label>
+
+                    <input type="checkbox" id="beef">
+                    <label for="beef"><div class="check-square">✔</div>Beef</label>
+
+                    <input type="checkbox" id="salmon">
+                    <label for="salmon"><div class="check-square">✔</div>Salmon</label>
+                </div>
+            </div>
+
+            <!-- Dietary -->
+            <div class="section">
+                <h3>Dietary restrictions?</h3>
+                <div class="options-row">
+                    <input type="radio" name="diet" id="diet-yes">
+                    <label for="diet-yes"><div class="check-square">✔</div>Yes</label>
+
+                    <input type="radio" name="diet" id="diet-no">
+                    <label for="diet-no"><div class="check-square">✔</div>No</label>
+                </div>
+            </div>
+
+            <!-- Days -->
+            <div class="section">
+                <h3>How many days?</h3>
+                <div class="options-row">
+                    <input type="radio" name="days" id="days-all">
+                    <label for="days-all"><div class="check-square">✔</div>All week</label>
+
+                    <input type="radio" name="days" id="days-weekdays">
+                    <label for="days-weekdays"><div class="check-square">✔</div>No weekends</label>
+
+                    <input type="radio" name="days" id="days-specific">
+                    <label for="days-specific"><div class="check-square">✔</div>Specific days</label>
+                </div>
+
+                <!-- Dropdown -->
+                <div id="days-dropdown" class="dropdown">
+                    <input type="checkbox" id="mon" name="specificDays" value="Monday">
+                    <label for="mon">
+                        <div class="check-square">✔</div>
+                        <span>Monday</span>
+                    </label>
+                    <input type="checkbox" id="tues" name="specificDays" value="Tuesday">
+                    <label for="tues">
+                        <div class="check-square">✔</div>
+                        <span>Tuesday</span>
+                    </label>
+                    <input type="checkbox" id="wed" name="specificDays" value="Wednesday">
+                    <label for="wed">
+                        <div class="check-square">✔</div>
+                        <span>Wednesday</span>
+                    </label>
+                    <input type="checkbox" id="thur" name="specificDays" value="Thursday">
+                    <label for="thur">
+                        <div class="check-square">✔</div>
+                        <span>Thursday</span>
+                    </label>
+                    <input type="checkbox" id="fri" name="specificDays" value="Friday">
+                    <label for="fri">
+                        <div class="check-square">✔</div>
+                        <span>Friday</span>
+                    </label>
+                    <input type="checkbox" id="sat" name="specificDays" value="Saturday">
+                    <label for="sat">
+                        <div class="check-square">✔</div>
+                        <span>Saturday</span>
+                    </label>
+                    <input type="checkbox" id="sun" name="specificDays" value="Sunday">
+                    <label for="sun">
+                        <div class="check-square">✔</div>
+                        <span>Sunday</span>
+                    </label>
+
+                </div>
+            </div>
+
+            <button class="subscribe-btn">Subscribe</button>
+        </form>
+    </div>
+</div>
+
+<script>
+// Close popup when clicking outside the card
+const popupOverlay = document.getElementById("weekly-popup");
+const popupCard = document.querySelector(".popup-card");
+
+popupOverlay.addEventListener("click", (e) => {
+    if (e.target === popupOverlay) {
+        popupOverlay.style.display = "none";
+    }
+});
+
+
+const popup = document.getElementById("weekly-popup");
+const dropdown = document.getElementById("days-dropdown");
+const specificRadio = document.getElementById("days-specific");
+const otherRadios = document.querySelectorAll("input[name='days']:not(#days-specific)");
+const form = document.getElementById("subscription-form");
+
+/* Show / hide dropdown */
+specificRadio.addEventListener("change", () => dropdown.style.display = "block");
+otherRadios.forEach(r => r.addEventListener("change", () => dropdown.style.display = "none"));
+
+/* Confirmation */
+const confirmationOverlay = document.createElement("div");
+confirmationOverlay.className = "confirmation-overlay";
+document.body.appendChild(confirmationOverlay);
+
+const confirmationPopup = document.createElement("div");
+confirmationPopup.className = "confirmation-popup";
+confirmationPopup.textContent = "You are subscribed!";
+document.body.appendChild(confirmationPopup);
+
+/* Submit validation */
+form.addEventListener("submit", e => {
+    e.preventDefault();
+
+    if (specificRadio.checked) {
+        const selected = dropdown.querySelectorAll("input:checked");
+        if (!selected.length) {
+            alert("Please select at least one specific day.");
+            return;
+        }
+    }
+
+    popup.style.display = "none";
+    confirmationOverlay.classList.add("show");
+    confirmationPopup.classList.add("show");
+
+    setTimeout(() => {
+        confirmationOverlay.classList.remove("show");
+        confirmationPopup.classList.remove("show");
+    }, 2000);
+});
+</script>

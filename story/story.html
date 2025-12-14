@@ -10,16 +10,48 @@
 <body>
     
     <div id="header"></div>
-    
-    <script src="/common.js"></script>
-    <script>
-        loadHTML("header", "/common_elements/header.html");
-    </script>
+
+    <div class="container">
+        <div class="story-section">
+            <div class="story-image">
+                <img src="storyPic.jpg" alt="Founders">
+            </div>
+            <div class="story-content">
+                <h1>Our Story</h1>
+                <p>Healthybyjeen was founded by two brothers who combined their professional backgrounds and personal experiences. One brother had been working abroad since 2011, gaining management experience in the hospitality industry, while the other built his career as a fitness coach. After returning to Lebanon in the aftermath of the September 2024 events and following the loss of close family members during the war they decided to settle in their home country and create something meaningful. Together, they launched Healthybyjeen, a restaurant built on the idea of serving healthy meals with precise calorie and macronutrient counts, so that every customer knows exactly what they’re eating.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="vision-section">
+        <h2>Our Vision and Mission</h2>
+        <div class="vision-content">
+            <p>Healthybyjeen envisions becoming a leading diet and wellness center that empowers individuals to take full control of their health through knowledge, transparency, and balanced nutrition. Our long-term goal is to expand beyond healthy meals and offer complete nutritional guidance, personalized meal plans, and structured health programs that support every customer on their journey toward a brighter, stronger, and more mindful lifestyle. We aim to inspire a community where healthy eating is simple, accessible, and deeply connected to overall wellbeing.</p>
+            <p>Our mission is to serve high-quality, wholesome meals with precise calorie and macronutrient information, ensuring every customer knows exactly what they’re eating. We focus on oil-free cooking, reduced-fat options, and fresh ingredients to provide a healthier alternative to traditional fast food. By combining our hospitality and fitness expertise, we strive to deliver transparency, value, and consistency in every plate. Through clear communication, customer-centered service, and ingredient transparency, we make healthy eating both trustworthy and convenient.</p>
+            <p>Healthybyjeen was created by two brothers who turned personal loss into a mission to build something meaningful. Their goal is to help people “Eat Right, Live Bright” through honest, nourishing meals that support a healthier lifestyle.</p>
+        </div>
+    </div>
+
+    <!-- Values Section -->
+    <div class="values-section">
+        <h2>Our Values</h2>
+        <p class="subtitle">Because what we stand for matters.</p>
+
+        <div id="common_values_section"></div>
+
+    </div>
 
     <div id="footer"></div>
+
+    <script src="/common.js"></script>
     <script>
+        
+        loadHTML("header", "/common_elements/header.html");
         loadHTML("footer", "/common_elements/footer.html");
+
+        loadHTML("common_values_section", "/common_elements/common_values_section.html");
     </script>
+
 
 
 </body>
