@@ -64,9 +64,9 @@
         transition: filter 0.2s ease, transform 0.2s ease;
     }
 
-    .icon:hover img {
+    /* .icon:hover img {
         filter: brightness(0) invert(1);
-    }
+    } */
 
 
     .mobile-icons {
@@ -249,32 +249,45 @@
         <span></span>
     </div>
 
+    <!-- Mobile Header Cart (Visible on small screens) -->
+    <div class="mobile-header-cart">
+        <div class="cart-wrapper">
+            <a href="/cart/cart.html">
+                <img src="/common_elements/cart.png" alt="cart">
+            </a>
+            <span class="cart-count">0</span>
+        </div>
+    </div>
+
+
     <!-- MOBILE SLIDE-IN MENU -->
     <nav id="nav-menu">
         <a href="/index.html" class="active">Home</a>
         <a href="/menu/menu.html">Menu</a>
         <a href="/story/story.html">About Us</a>
         <a href="/contact/contact.html">Contact Us</a>
-        <!-- MOBILE SLIDE-IN MENU -->
-        <nav id="nav-menu">
-            <a href="/index.html" class="active">Home</a>
-            <a href="/menu/menu.html">Menu</a>
-            <a href="/story/story.html">About Us</a>
-            <a href="/contact/contact.html">Contact Us</a>
 
-            <div class="mobile-icons">
-                <button class="profile-btn" type="button" onclick="return hbOpenLogin(event, true);">Log in</button>
-                <img src="/common_elements/cart.png" alt="cart">
+        <div class="mobile-icons">
+            <button class="profile-btn" type="button" onclick="return hbOpenLogin(event, true);">Log in</button>
+            <div class="cart-wrapper">
+                <a href="/cart/cart.html"><img src="/common_elements/cart.png" alt="cart"></a>
+                <span class="cart-count">0</span>
             </div>
-        </nav>
-
-        <!-- Desktop Only Icons -->
-        <div class="header-icons" id="desktop-icons">
-            <div class="icon">
-                <button class="profile-btn" type="button" onclick="return hbOpenLogin(event, false);">Log in</button>
-            </div>
-            <div class="icon"><img src="/common_elements/cart.png" alt="cart"></div>
         </div>
+    </nav>
+
+    <!-- Desktop Only Icons -->
+    <div class="header-icons" id="desktop-icons">
+        <div class="icon">
+            <button class="profile-btn" type="button" onclick="return hbOpenLogin(event, false);">Log in</button>
+        </div>
+        <div class="icon cart-wrapper">
+            <a href="/cart/cart.html">
+                <img src="/common_elements/cart.png" alt="cart">
+            </a>
+            <span class="cart-count">0</span>
+        </div>
+    </div>
 </header>
 
 <script>
