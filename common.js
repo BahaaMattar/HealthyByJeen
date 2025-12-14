@@ -94,6 +94,25 @@ function setActiveNavLink() {
             link.classList.remove("active");
         }
     });
+
+    // Also update cart count when header is loaded
+    updateCartCount();
+}
+
+// Update Cart Count in Navbar
+function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('cartItems')) || [];
+    const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+    const countElements = document.querySelectorAll('.cart-count');
+    countElements.forEach(el => {
+        el.innerText = totalCount;
+        if (totalCount > 0) {
+            el.style.display = 'block';
+        } else {
+            el.style.display = 'none';
+        }
+    });
 }
 
 /* ======================================================

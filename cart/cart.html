@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="cart.css">
+</head>
+
+<body>
+
+    <div id="header"></div>
+
+    <div class="cart-container">
+        <h1 class="cart-title">Your Cart</h1>
+
+        <div class="cart-layout">
+            <!-- Left Side: Items List -->
+            <div class="cart-items-section">
+                <!-- Items will be injected here by JS -->
+                <div id="cart-items-container">
+                    <!-- Example Item Structure (for reference/debugging) -->
+                    <!-- 
+                    <div class="cart-item">
+                        <img src="../menu/images/avocado_toast.png" alt="Item">
+                        <div class="item-details">
+                            <h3>Avocado Toast</h3>
+                            <p>Smashed avocado on sourdough</p>
+                            <span class="item-price">$8.99</span>
+                        </div>
+                        <div class="item-quantity">
+                            <button>-</button>
+                            <span>1</span>
+                            <button>+</button>
+                        </div>
+                        <button class="remove-item">×</button>
+                    </div> 
+                    -->
+                    <p class="empty-msg">Your cart is empty.</p>
+                </div>
+            </div>
+
+            <!-- Right Side: Order Summary / Checkout Steps -->
+            <div class="cart-summary-section">
+
+                <!-- Default Order Summary View -->
+                <div id="summary-view" class="summary-content">
+                    <h2 id="summary-header">Order Summary</h2>
+                    <div id="summary-items">
+                        <!-- Summary rows go here -->
+                    </div>
+
+                    <div class="summary-row delivery">
+                        <span>Delivery</span>
+                        <span>TBA</span>
+                    </div>
+
+                    <hr>
+
+                    <div class="summary-row total">
+                        <span>Total</span>
+                        <span id="cart-total">$0.00</span>
+                    </div>
+
+                    <button class="checkout-btn">Proceed to checkout</button>
+                </div>
+
+                <!-- Step 1: Location Form -->
+                <div id="step-1" class="checkout-step hidden">
+                    <h2>Step 1 — Location</h2>
+                    <form id="location-form">
+                        <div class="form-group">
+                            <label for="country">Country / Region</label>
+                            <input type="text" id="country" name="country" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="city">Town / City</label>
+                                <input type="text" id="city" name="city" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="postal">Postal Code</label>
+                                <input type="text" id="postal" name="postal" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="street">Street</label>
+                            <input type="text" id="street" name="street" required>
+                        </div>
+
+                        <button type="button" id="next-btn" class="checkout-action-btn">Next</button>
+                    </form>
+                </div>
+
+                <!-- Step 2: Payment Method -->
+                <div id="step-2" class="checkout-step hidden">
+                    <h2>Step 2 — Payment Method</h2>
+                    <p class="payment-subtitle">All transactions are secure and encrypted</p>
+
+                    <div class="payment-options">
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="cash" checked>
+                            <span class="payment-label">Cash on delivery (USD)</span>
+                        </label>
+
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="credit">
+                            <span class="payment-label">Credit Card on delivery</span>
+                        </label>
+                    </div>
+
+                    <button type="button" id="confirm-btn" class="checkout-action-btn">Confirm Order</button>
+                </div>
+
+                <!-- Step 3: Order Confirmation -->
+                <div id="step-3" class="checkout-step confirmation-step hidden">
+                    <div class="confirmation-icon">
+                        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                            <circle cx="40" cy="40" r="40" fill="#0d5f2f" />
+                            <path d="M25 40L35 50L55 30" stroke="white" stroke-width="6" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <h2>Order Confirmed!</h2>
+                    <p>Your order has been successfully placed.</p>
+                    <button type="button" id="home-btn" class="checkout-action-btn">Back to Home</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="/common.js"></script>
+    <script>
+        loadHTML("header", "/common_elements/header.html");
+        loadHTML("footer", "/common_elements/footer.html");
+    </script>
+    <script src="cart.js"></script>
+
+    <div id="footer"></div>
+
+</body>
+
+</html>

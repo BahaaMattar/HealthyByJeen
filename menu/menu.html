@@ -1,26 +1,391 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Menu</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="menu.css">
 </head>
+
 <body>
-    
+
     <div id="header"></div>
-    
+
+    <div class="menu-container">
+        <h1 class="menu-title">Menu</h1>
+
+        <div class="menu-filters">
+            <button class="filter-btn" data-filter="sandwiches">Sandwiches</button>
+            <button class="filter-btn" data-filter="salads">Salads</button>
+            <button class="filter-btn" data-filter="shakers">Shakers</button>
+            <button class="filter-btn active" data-filter="desserts">Desserts</button>
+        </div>
+
+        <div class="menu-grid">
+
+            <!-- SANDWICHES -->
+            <div class="menu-card" data-category="sandwiches">
+                <div class="card-image-wrapper">
+                    <img src="images/turkey&cheese sandwich.png" alt="Turkey&cheese">
+                    <span class="cal-badge">350 cal</span>
+                </div>
+                <div class="card-content">
+                    <h3>Turkey&Cheese</h3>
+                    <p>Slices of turkey breast with swiss cheese and fresh greens</p>
+                    <div class="card-footer">
+                        <span class="price">$9.99</span>
+                        <button class="add-to-cart"><img src="../common_elements/cart.png" alt="Add"></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-category="sandwiches">
+                <div class="card-image-wrapper">
+                    <img src="images/tuna sandwich.png" alt="Tuna Sandwich">
+                    <span class="cal-badge">320 cal</span>
+                </div>
+                <div class="card-content">
+                    <h3>Tuna</h3>
+                    <p>Smashed avocado on sourdough with chili flakes</p>
+                    <div class="card-footer">
+                        <span class="price">$8.99</span>
+                        <button class="add-to-cart"><img src="../common_elements/cart.png" alt="Add"></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-category="sandwiches">
+                <div class="card-image-wrapper">
+                    <img src="images/halloumi sandwich.png" alt="Halloumi Pesto">
+                    <span class="cal-badge">420 cal</span>
+                </div>
+                <div class="card-content">
+                    <h3>Halloumi Pesto</h3>
+                    <p>Grilled halloumi with basil pesto and tomatoes</p>
+                    <div class="card-footer">
+                        <span class="price">$10.99</span>
+                        <button class="add-to-cart"><img src="../common_elements/cart.png" alt="Add"></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-category="sandwiches">
+                <div class="card-image-wrapper">
+                    <img src="images/turkey&cheese sandwich.png" alt="turkey&cheese Sandwich">
+                    <span class="cal-badge">400 cal</span>
+                </div>
+                <div class="card-content">
+                    <h3>Turkey&cheese</h3>
+                    <p>Slices of turkey breast with swiss cheese and fresh greens</p>
+                    <div class="card-footer">
+                        <span class="price">$10.49</span>
+                        <button class="add-to-cart"><img src="../common_elements/cart.png" alt="Add"></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-category="sandwiches">
+                <div class="card-image-wrapper">
+                    <img src="images/chicken sandwich.png" alt="chicken sandwich">
+                    <span class="cal-badge">550 cal</span>
+                </div>
+                <div class="card-content">
+                    <h3>Chicken Sandwich</h3>
+                    <p>Sautéed chicken strips with peppers, onions, and melted cheese</p>
+                    <div class="card-footer">
+                        <span class="price">$12.99</span>
+                        <button class="add-to-cart"><img src="../common_elements/cart.png" alt="Add"></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-category="sandwiches">
+                <div class="card-image-wrapper">
+                    <img src="images/halloumi sandwich.png" alt="Halooumi sandwich">
+                    <span class="cal-badge">480 cal</span>
+                </div>
+                <div class="card-content">
+                    <h3>Halloumi</h3>
+                    <p>Grilled halloumi with tomatoe and fresh greens</p>
+                    <div class="card-footer">
+                        <span class="price">$11.99</span>
+                        <button class="add-to-cart"><img src="../common_elements/cart.png" alt="Add"></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SALADS -->
+            <div class="menu-card" data-category="salads">
+                <div class="card-image-wrapper">
+                    <img src="images/quinoa salad.png" alt="Quinoa Power Salad">
+                    <span class="cal-badge">380 cal</span>
+                </div>
+                <div class="card-content">
+                    <h3>Quinoa Power Salad</h3>
+                    <p>Quinoa, kale, cherry tomatoes, and lemon vinaigrette</p>
+                    <div class="card-footer">
+                        <span class="price">$11.99</span>
+                        <button class="add-to-cart"><img src="../common_elements/cart.png" alt="Add"></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-category="salads">
+                <div class="card-image-wrapper">
+                    <img src="images/tuna salad.png" alt="Tuna salad">
+                    <span class="cal-badge">420 cal</span>
+                </div>
+                <div class="card-content">
+                    <h3>Tuna Salad</h3>
+                    <p>Marinated tuna over mixed greens with tahini</p>
+                    <div class="card-footer">
+                        <span class="price">$12.99</span>
+                        <button class="add-to-cart"><img src="../common_elements/cart.png" alt="Add"></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-category="salads">
+                <div class="card-image-wrapper">
+                    <img src="images/burger salad.png" alt="Burger Salad">
+                    <span class="cal-badge">500 cal</span>
+                </div>
+                <div class="card-content">
+                    <h3>Burger Salad</h3>
+                    <p>Deconstructed burger bowl with lettuce, tomato, pickles, and ground beef</p>
+                    <div class="card-footer">
+                        <span class="price">$13.49</span>
+                        <button class="add-to-cart"><img src="../common_elements/cart.png" alt="Add"></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-category="salads">
+                <div class="card-image-wrapper">
+                    <img src="images/shawarma salad.png" alt="shawarma salad">
+                    <span class="cal-badge">350 cal</span>
+                </div>
+                <div class="card-content">
+                    <h3>Shawarma salad</h3>
+                    <p>shawarma pasta with tuna, corn, and creamy dressing</p>
+                    <div class="card-footer">
+                        <span class="price">$10.99</span>
+                        <button class="add-to-cart"><img src="../common_elements/cart.png" alt="Add"></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-category="salads">
+                <div class="card-image-wrapper">
+                    <img src="images/chicken ceasar salad.png" alt="chocken ceasar salad">
+                    <span class="cal-badge">125 cal</span>
+                </div>
+                <div class="card-content">
+                    <h3>Chicken Ceasar Salad</h3>
+                    <p>Seasonal fruit salad with mint and honey</p>
+                    <div class="card-footer">
+                        <span class="price">$7.99</span>
+                        <button class="add-to-cart"><img src="../common_elements/cart.png" alt="Add"></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-category="salads">
+                <div class="card-image-wrapper">
+                    <img src="images/burger salad.png" alt="Burger Salad">
+                    <span class="cal-badge">250 cal</span>
+                </div>
+                <div class="card-content">
+                    <h3>Burger Salad</h3>
+                    <p>chicken, tomato, olives, and feta cheese</p>
+                    <div class="card-footer">
+                        <span class="price">$9.49</span>
+                        <button class="add-to-cart"><img src="../common_elements/cart.png" alt="Add"></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SHAKERS (UPDATED EXACTLY LIKE THE IMAGE) -->
+            <div class="menu-card" data-category="shakers">
+                <div class="card-image-wrapper">
+                    <img src="images/beef shaker.png" alt="Beef Shaker">
+                    <span class="cal-badge">360 Kcal</span>
+                </div>
+                <div class="card-content">
+                    <h3>Beef Shaker</h3>
+                    <p>Beef Fillet, Air Fried Potatoes, Mixed Cabbage, Romanian Lettuce, Dill Pickles, Corn</p>
+                    <div class="card-footer">
+                        <span class="price">$6</span>
+                        <button class="add-to-cart"><img src="../common_elements/cart.png" alt="Add"></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-category="shakers">
+                <div class="card-image-wrapper">
+                    <img src="images/shrimp shaker.png" alt="Shrimp Shaker">
+                    <span class="cal-badge">212 Kcal</span>
+                </div>
+                <div class="card-content">
+                    <h3>Shrimp Shaker</h3>
+                    <p>Shrimps, Romanian Lettuce, Mixed Peppers, Green Onion, Shredded Carrots</p>
+                    <div class="card-footer">
+                        <span class="price">$7</span>
+                        <button class="add-to-cart"><img src="../common_elements/cart.png" alt="Add"></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-category="shakers">
+                <div class="card-image-wrapper">
+                    <img src="images/chicken shaker.png" alt="Chicken Shaker">
+                    <span class="cal-badge">352 Kcal</span>
+                </div>
+                <div class="card-content">
+                    <h3>Chicken Shaker</h3>
+                    <p>Grilled Chicken, Pasta, Mixed Cabbage, Romanian Lettuce, Dill Pickles, Corn</p>
+                    <div class="card-footer">
+                        <span class="price">$8</span>
+                        <button class="add-to-cart"><img src="../common_elements/cart.png" alt="Add"></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DESSERTS  -->
+            <div class="menu-card" data-category="desserts">
+                <div class="card-image-wrapper">
+                    <img src="images/acai dessert.png" alt="Acai Berry Bowl">
+                    <span class="cal-badge">285 cal</span>
+                </div>
+                <div class="card-content">
+                    <h3>Acai Berry Bowl</h3>
+                    <p>Fresh acai blended with banana, topped with granola and berries</p>
+                    <div class="card-footer">
+                        <span class="price">$12.99</span>
+                        <button class="add-to-cart"><img src="../common_elements/cart.png" alt="Add"></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-category="desserts">
+                <div class="card-image-wrapper">
+                    <img src="images/chia dessert.png" alt="Chia Pudding Parfait">
+                    <span class="cal-badge">195 cal</span>
+                </div>
+                <div class="card-content">
+                    <h3>Chia Pudding Parfait</h3>
+                    <p>Vanilla chia pudding layered with fresh berries and granola</p>
+                    <div class="card-footer">
+                        <span class="price">$9.99</span>
+                        <button class="add-to-cart"><img src="../common_elements/cart.png" alt="Add"></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-category="desserts">
+                <div class="card-image-wrapper">
+                    <img src="images/green youg dessert.png" alt="Greek Yogurt Parfait">
+                    <span class="cal-badge">220 cal</span>
+                </div>
+                <div class="card-content">
+                    <h3>Greek Yogurt Parfait</h3>
+                    <p>Creamy Greek yogurt with honey, berries, and almonds</p>
+                    <div class="card-footer">
+                        <span class="price">$8.99</span>
+                        <button class="add-to-cart"><img src="../common_elements/cart.png" alt="Add"></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-category="desserts">
+                <div class="card-image-wrapper">
+                    <img src="images/green smothie dessert.png" alt="Green Smoothie Bowl">
+                    <span class="cal-badge">310 cal</span>
+                </div>
+                <div class="card-content">
+                    <h3>Green Smoothie Bowl</h3>
+                    <p>Spinach and mango smoothie with kiwi and chia seeds</p>
+                    <div class="card-footer">
+                        <span class="price">$13.99</span>
+                        <button class="add-to-cart"><img src="../common_elements/cart.png" alt="Add"></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-category="desserts">
+                <div class="card-image-wrapper">
+                    <img src="images/fruit dessert.png" alt="Fresh Fruit Medley">
+                    <span class="cal-badge">125 cal</span>
+                </div>
+                <div class="card-content">
+                    <h3>Fresh Fruit Medley</h3>
+                    <p>Seasonal fruit salad with mint and honey</p>
+                    <div class="card-footer">
+                        <span class="price">$7.99</span>
+                        <button class="add-to-cart"><img src="../common_elements/cart.png" alt="Add"></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card" data-category="desserts">
+                <div class="card-image-wrapper">
+                    <img src="images/protein power dessert.png" alt="Protein Power Bowl">
+                    <span class="cal-badge">310 cal</span>
+                </div>
+                <div class="card-content">
+                    <h3>Protein Power Bowl</h3>
+                    <p>Mixed berries with quinoa, nuts, and almond butter</p>
+                    <div class="card-footer">
+                        <span class="price">$11.49</span>
+                        <button class="add-to-cart"><img src="../common_elements/cart.png" alt="Add"></button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
     <script src="/common.js"></script>
+
     <script>
-        loadHTML("header", "/common_elements/header.html");
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const cards = document.querySelectorAll('.menu-card');
+
+            filterCards('desserts');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const category = btn.getAttribute('data-filter');
+                    filterCards(category);
+                });
+            });
+
+            function filterCards(category) {
+                cards.forEach(card => {
+                    if (category === 'all' || card.getAttribute('data-category') === category) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+        });
     </script>
 
     <div id="footer"></div>
     <script>
         loadHTML("footer", "/common_elements/footer.html");
+        loadHTML("header", "/common_elements/header.html");
     </script>
 
+    <script src="menu.js"></script>
 
 </body>
+
 </html>

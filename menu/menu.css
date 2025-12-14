@@ -11,5 +11,196 @@
             margin-top: 90px;
         }
 
+        /* Menu Page Styles */
 
-   
+        .menu-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .menu-title {
+            text-align: center;
+            color: #0d5f2f;
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        /* Filter Buttons */
+        .menu-filters {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 5rem;
+            /* Large space for overlapping images */
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 6px 40px;
+            /* Reduced height */
+            border: 2px solid #a3cf62;
+            background: transparent;
+            color: #4a4a4a;
+            /* Gray text inactive */
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border-radius: 12px;
+            /* Slightly squared gentler corners */
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover {
+            border-color: #a3cf62;
+            background-color: #f0f9e8;
+        }
+
+        .filter-btn.active {
+            background-color: #006844;
+            /* Green active */
+            color: white;
+            border-color: #a3cf62;
+        }
+
+        /* Card Grid */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 100px 40px;
+            /* Vertical gap larger for usage */
+            padding: 20px;
+        }
+
+        /* Card Component */
+        /* Card Component */
+        .menu-card {
+            background-color: #a3cf62;
+            /* Light Green */
+            border-radius: 40px;
+            padding: 20px;
+            padding-top: 135px;
+            /* Increased padding */
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            margin-top: 100px;
+            /* Reduced margin */
+            color: #0d5f2f;
+            /* Dark green text */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Image Wrapper */
+        .card-image-wrapper {
+            position: absolute;
+            top: -90px;
+            /* Lowered image */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 220px;
+            height: 220px;
+        }
+
+        .card-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* Calorie Badge */
+        .cal-badge {
+            position: absolute;
+            top: 50px;
+            /* Lowered badge */
+            right: -10px;
+            /* Hugs the bowl */
+            background-color: #005c29;
+            /* Dark Green Badge */
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 3;
+        }
+
+        /* Card Content */
+        .card-content {
+            text-align: left;
+            margin-top: 5px;
+            /* Reduced gap */
+        }
+
+        .card-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            font-weight: 700;
+            color: #0d5f2f;
+        }
+
+        .card-content p {
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            color: #0d5f2f;
+            line-height: 1.4;
+            opacity: 0.9;
+            min-height: 48px;
+            /* Fixed height for alignment */
+        }
+
+        /* Footer (Price + Cart) */
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .add-to-cart {
+            background-color: #005c29;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .add-to-cart:hover {
+            transform: scale(1.05);
+            background-color: #00441e;
+        }
+
+        .add-to-cart img {
+            width: 20px;
+            /* Adjust based on actual icon size */
+            height: auto;
+            filter: brightness(0) invert(1);
+            /* Ensure it's white */
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-grid {
+                grid-template-columns: 1fr;
+                gap: 100px;
+                /* More space for stacked cards */
+                padding: 10px;
+            }
+
+            .menu-card {
+                margin-top: 80px;
+            }
+        }

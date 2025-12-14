@@ -1,16 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,500;1,600;1,700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="contact.css">
 </head>
+
 <body>
-    
+
     <div id="header"></div>
-    
+
+    <div class="contact-container">
+        <!-- Left Side: Visual -->
+        <div class="contact-visual">
+            <img src="/common_elements/phone.gif" alt="Contact Phone" class="phone-image">
+            <!-- Decorative background shape simulation -->
+            <div class="decorative-shape">
+                <img src="/common_elements/image copy.png" alt="Decorative e">
+            </div>
+        </div>
+
+        <!-- Right Side: Form -->
+        <div class="contact-form-section">
+            <div class="form-header">
+                <h2>Need support?</h2>
+                <p>Contact us if you need any further assistance</p>
+            </div>
+
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="fullname">Full Name</label>
+                    <input type="text" id="fullname" name="fullname">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" id="email" name="email">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5"></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Send</button>
+            </form>
+        </div>
+    </div>
+
     <script src="/common.js"></script>
     <script>
         loadHTML("header", "/common_elements/header.html");
@@ -21,6 +63,13 @@
         loadHTML("footer", "/common_elements/footer.html");
     </script>
 
+    <!-- Success Message -->
+    <div id="success-message" class="success-message hidden">
+        Your message has been sent successfully!
+    </div>
+
+    <script src="contact.js"></script>
 
 </body>
+
 </html>
