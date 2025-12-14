@@ -56,7 +56,17 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
+            
         }
+        /* ===== Cart icon hover → white ===== */
+        .icon img{
+            transition: filter 0.2s ease, transform 0.2s ease;
+        }
+
+        .icon:hover img{
+            filter: brightness(0) invert(1);
+        }
+
 
         .mobile-icons {
             display: none;
@@ -78,8 +88,6 @@
         .profile-btn:hover {
             background-color: #006844; /* darker green on hover */
         }
-
-
 
         /* Hide hamburger on desktop */
         .hamburger {
@@ -148,7 +156,6 @@
 
             /* Icons inside mobile menu */
             .mobile-icons {
-                /* margin-top: 20px; */
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -183,38 +190,64 @@
 
         }
 </style>
-   <header>
-        <div class="logo">
-            <a href="/index.html"><img src="/common_elements/Jeen_logo.png" alt="Jeen_logo"></a>
+
+<header>
+    <div class="logo">
+        <a href="/index.html"><img src="/common_elements/Jeen_logo.png" alt="Jeen_logo"></a>
+    </div>
+
+    <!-- Hamburger Icon -->
+    <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- MOBILE SLIDE-IN MENU -->
+    <nav id="nav-menu">
+        <a href="/index.html" class="active">Home</a>
+        <a href="/menu/menu.html">Menu</a>
+        <a href="/story/story.html">About Us</a>
+        <a href="/contact/contact.html">Contact Us</a>
+
+        <div class="mobile-icons">
+            <button class="profile-btn" type="button" onclick="return hbOpenLogin(event, true);">Log in</button>
+            <img src="/common_elements/cart.png" alt="cart">
         </div>
+    </nav>
 
-        <!-- Hamburger Icon -->
-        <div class="hamburger" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
+    <!-- Desktop Only Icons -->
+    <div class="header-icons" id="desktop-icons">
+        <div class="icon">
+            <button class="profile-btn" type="button" onclick="return hbOpenLogin(event, false);">Log in</button>
         </div>
+        <div class="icon"><img src="/common_elements/cart.png" alt="cart"></div>
+    </div>
+</header>
 
-        <!-- MOBILE SLIDE-IN MENU -->
-        <nav id="nav-menu">
-            <a href="/index.html" class="active">Home</a>
-            <a href="/menu/menu.html">Menu</a>
-            <a href="/story/story.html">About Us</a>
-            <a href="/contact/contact.html">Contact Us</a>
+<script>
+  function closeMobileMenuIfOpen() {
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    if (hamburger && navMenu) {
+      hamburger.classList.remove('active');
+      navMenu.classList.remove('active');
+    }
+  }
 
-            <div class="mobile-icons">
-                <!-- <img src="/common_elements/profile_icon.png" alt="profile"> -->
-                 <button class="profile-btn">Log in</button>
-                <img src="/common_elements/cart.png" alt="cart">
-            </div>
-        </nav>
+  // ✅ Safe opener: prevents navigation + stops bubbling (fixes “opens then disappears”)
+  function hbOpenLogin(e, closeMenu){
+    if (e){
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    if (closeMenu) closeMobileMenuIfOpen();
 
-        <!-- Desktop Only Icons -->
-        <div class="header-icons" id="desktop-icons">
-            <!-- <div class="icon"><img src="/common_elements/profile_icon.png" alt="profile"></div> -->
-            <div class="icon">
-                <button class="profile-btn">Log in</button>
-            </div>
-            <div class="icon"><img src="/common_elements/cart.png" alt="cart"></div>
-        </div>
-    </header>
+    if (typeof openLoginPopup === "function") {
+      openLoginPopup();
+    } else {
+      console.warn("openLoginPopup() not found on this page.");
+    }
+    return false;
+  }
+</script>

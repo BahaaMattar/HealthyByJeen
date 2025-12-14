@@ -1,26 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="profile.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Profile – Jeen</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="profile.css" />
 </head>
 <body>
-    
-    <div id="header"></div>
-    
-    <script src="/common.js"></script>
-    <script>
-        loadHTML("header", "/common_elements/header.html");
-    </script>
 
-    <div id="footer"></div>
-    <script>
-        loadHTML("footer", "/common_elements/footer.html");
-    </script>
+  <div id="header"></div>
+  <script src="/common.js"></script>
+  <script>
+    loadHTML("header", "/common_elements/header.html");
+  </script>
 
+  <main class="profile-page">
+    <section class="profile-card">
 
+      <div class="profile-top">
+        <div class="title-wrap">
+          <h1>User Profile</h1>
+          <p class="subtitle" id="subTitle">User info</p>
+        </div>
+
+        <button id="signOutBtn" class="signout">Sign out</button>
+      </div>
+
+      <div class="profile-layout">
+        <!-- Left Tabs -->
+        <aside class="tabs">
+          <button class="tab active" data-tab="info">User Info</button>
+          <button class="tab" data-tab="orders">Previous Orders</button>
+        </aside>
+
+        <!-- Right Content -->
+        <section class="content">
+          <!-- INFO TAB -->
+          <div class="panel active" id="info">
+            <div class="name-block">
+              <h2 id="displayName">—</h2>
+              <p id="displayLocation">—</p>
+            </div>
+
+            <form id="profileForm" class="form-grid">
+              <div class="field">
+                <label>Full Name</label>
+                <input id="fullName" type="text" required>
+              </div>
+
+              <div class="field">
+                <label>Email Address</label>
+                <input id="email" type="email" required>
+              </div>
+
+              <div class="field">
+                <label>Phone number</label>
+                <input id="phone" type="tel" placeholder="+961 …">
+              </div>
+
+              <div class="field">
+                <label>Location</label>
+                <input id="location" type="text" placeholder="City, Area">
+              </div>
+
+              <div class="field bmr-field">
+                <label>BMR</label>
+                <div class="bmr-row">
+                  <input id="bmr" type="number" min="0" placeholder="Not set">
+                  <button type="button" class="bmr-btn" id="openBmr">Calculate</button>
+                </div>
+              </div>
+
+              <button class="save" type="submit">Save Changes</button>
+            </form>
+          </div>
+
+          <!-- ORDERS TAB -->
+          <div class="panel" id="orders">
+            <div class="orders-head">
+              <div>Items</div>
+              <div>Total</div>
+              <div>Order Details</div>
+            </div>
+
+            <div class="order">
+              <img src="/home/OIP (1) (1) 1.png" alt="">
+              <div class="order-info">
+                <h3>Acai Berry Bowl</h3>
+                <p>Fresh acai blended with banana, topped with granola and berries</p>
+                <span>Quantity: 1</span>
+              </div>
+              <div class="order-total">$12.99</div>
+              <div class="order-status">Delivered</div>
+            </div>
+
+            <div class="order">
+              <img src="/home/OIP (1) (1) 3.png" alt="">
+              <div class="order-info">
+                <h3>Protein Power Bowl</h3>
+                <p>Mixed berries with quinoa, nuts and almond butter</p>
+                <span>Quantity: 1</span>
+              </div>
+              <div class="order-total">$13.99</div>
+              <div class="order-status">Delivered</div>
+            </div>
+
+          </div>
+        </section>
+      </div>
+
+      <!-- Big decorative letter (like Figma) -->
+      <div class="bg-letter">e</div>
+    </section>
+  </main>
+
+  <!-- BMR POPUP -->
+  <div id="bmrModal" class="modal-overlay">
+    <div class="modal-card">
+      <button class="modal-close" id="closeBmr">&times;</button>
+      <h2 class="modal-title">Calculate your BMR</h2>
+
+      <form id="bmrForm">
+        <div class="field2">
+          <label>Gender</label>
+          <select id="gender" required>
+            <option value="">Select</option>
+            <option value="Female">Female</option>
+            <option value="Male">Male</option>
+          </select>
+        </div>
+
+        <div class="field2">
+          <label>Age</label>
+          <input id="age" type="number" min="1" required>
+        </div>
+
+        <div class="field2">
+          <label>Height (cm)</label>
+          <input id="height" type="number" min="1" required>
+        </div>
+
+        <div class="field2">
+          <label>Weight (kg)</label>
+          <input id="weight" type="number" min="1" required>
+        </div>
+
+        <div class="field2">
+          <label>Activity Level</label>
+          <select id="activity" required>
+            <option value="">Select</option>
+            <option value="1.2">Sedentary</option>
+            <option value="1.375">Slightly active</option>
+            <option value="1.55">Moderately active</option>
+            <option value="1.725">Highly active</option>
+          </select>
+        </div>
+
+        <button class="btn-primary" type="submit">Calculate</button>
+        <p id="bmrResult" class="subtext"></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="profile.js"></script>
 </body>
 </html>
