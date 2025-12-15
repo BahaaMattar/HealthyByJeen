@@ -96,38 +96,67 @@ document.addEventListener("DOMContentLoaded", () => {
     window.location.href = "/index.html";
   });
 
-  // BMR modal open/close
+  // BMR modal open/close (Component-75 style)
   const bmrModal = document.getElementById("bmrModal");
   const openBmr = document.getElementById("openBmr");
-  const closeBmr = document.getElementById("closeBmr");
 
-  openBmr.addEventListener("click", () => bmrModal.classList.add("show"));
-  closeBmr.addEventListener("click", () => bmrModal.classList.remove("show"));
-  bmrModal.addEventListener("click", (e) => {
-    if (e.target === bmrModal) bmrModal.classList.remove("show");
-  });
+  // close button is now inside markup with onclick="closeBmrModal()"
+  function closeBmrModal(){
+    if(!bmrModal) return;
+    bmrModal.classList.remove("show");
+    bmrModal.setAttribute("aria-hidden", "true");
+  }
 
-  // BMR calculation (Mifflin-St Jeor + activity multiplier)
-  document.getElementById("bmrForm").addEventListener("submit", (e) => {
+  function openBmrModal(){
+    if(!bmrModal) return;
+    bmrModal.classList.add("show");
+    bmrModal.setAttribute("aria-hidden", "false");
+  }
+
+  if (openBmr) {
+    openBmr.addEventListener("click", (e) => {
+      e.preventDefault();
+      openBmrModal();
+    });
+  }
+
+  if (bmrModal) {
+    bmrModal.addEventListener("click", (e) => {
+      if (e.target === bmrModal) closeBmrModal();
+    });
+  }
+
+  // BMR calculation (same formula, new field IDs)
+  document.getElementById("hbjBmrForm")?.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const gender = document.getElementById("gender").value;
-    const age = Number(document.getElementById("age").value);
-    const height = Number(document.getElementById("height").value);
-    const weight = Number(document.getElementById("weight").value);
-    const activity = Number(document.getElementById("activity").value);
+    const gender = document.getElementById("hbjBmrGender").value;
 
-    // Base BMR
+    // age select values: "18-35" | "35-60" | "60+"
+    // We'll use midpoints so calculation still works
+    const ageBucket = document.getElementById("hbjBmrAge").value;
+    const age = ageBucket === "18-35" ? 26 : (ageBucket === "35-60" ? 47 : 65);
+
+    const height = Number(document.getElementById("hbjBmrHeight").value);
+    const weight = Number(document.getElementById("hbjBmrWeight").value);
+    const activity = Number(document.getElementById("hbjBmrActivity").value);
+
     let base = 10 * weight + 6.25 * height - 5 * age + (gender === "Male" ? 5 : -161);
     const calories = Math.round(base * activity);
 
-    document.getElementById("bmrResult").textContent = `Estimated calories/day: ${calories}`;
+    // show result inside modal
+    const result = document.getElementById("hbjBmrResult");
+    if (result) {
+      result.style.display = "block";
+      result.textContent = `Estimated calories/day: ${calories}`;
+    }
 
     // Save in form + account
     bmrInput.value = calories;
     acc = { ...acc, bmr: calories };
     upsertAccount(acc);
 
-    bmrModal.classList.remove("show");
+    closeBmrModal();
   });
+
 });

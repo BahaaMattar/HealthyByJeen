@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Customize</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/customization/customization.css" />
+</head>
+<body>
+  <div id="header"></div>
+
+  <main class="cz-wrap">
+    <!-- Top dropdowns -->
+    <section class="cz-top" aria-label="Customization dropdowns">
+      <div class="cz-dd" data-dd="plate">
+        <button class="cz-dd-btn" type="button">
+          <span class="cz-dd-title">Plate Type</span>
+          <span class="cz-dd-icon">⌄</span>
+        </button>
+        <div class="cz-dd-menu" role="menu">
+          <button type="button" data-group="plate" data-value="sandwich">Sandwich</button>
+          <button type="button" data-group="plate" data-value="salad">Salad</button>
+          <button type="button" data-group="plate" data-value="shaker">Shaker</button>
+          <button type="button" data-group="plate" data-value="dessert">Dessert</button>
+        </div>
+      </div>
+
+      <div class="cz-dd" data-dd="bread">
+        <button class="cz-dd-btn" type="button">
+          <span class="cz-dd-title">Bread Type</span>
+          <span class="cz-dd-icon">⌄</span>
+        </button>
+        <div class="cz-dd-menu" role="menu">
+          <button type="button" data-group="bread" data-value="whole-wheat">Whole wheat</button>
+          <button type="button" data-group="bread" data-value="high-protein">High Protein</button>
+          <button type="button" data-group="bread" data-value="gluten-free">Gluten Free</button>
+          <button type="button" data-group="bread" data-value="low-carb-wrap">Low Carb Wrap</button>
+        </div>
+      </div>
+
+      <div class="cz-dd" data-dd="protein">
+        <button class="cz-dd-btn" type="button">
+          <span class="cz-dd-title">Protein</span>
+          <span class="cz-dd-icon">⌄</span>
+        </button>
+        <div class="cz-dd-menu" role="menu">
+          <button type="button" data-group="protein" data-value="eggs">Eggs</button>
+          <button type="button" data-group="protein" data-value="cottage-cheese">Cottage Cheese</button>
+        </div>
+      </div>
+
+      <div class="cz-dd" data-dd="veggies">
+        <button class="cz-dd-btn" type="button">
+          <span class="cz-dd-title">Veggies</span>
+          <span class="cz-dd-icon">⌄</span>
+        </button>
+        <div class="cz-dd-menu" role="menu">
+          <button type="button" data-group="veggies" data-value="avocado">Avocado</button>
+          <button type="button" data-group="veggies" data-value="tomato">Tomato</button>
+        </div>
+      </div>
+
+      <div class="cz-dd" data-dd="sauce">
+        <button class="cz-dd-btn" type="button">
+          <span class="cz-dd-title">Sauce</span>
+          <span class="cz-dd-icon">⌄</span>
+        </button>
+        <div class="cz-dd-menu" role="menu">
+          <button type="button" data-group="sauce" data-value="mustard">Mustard</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main layout -->
+    <section class="cz-main">
+      <!-- Left: Figma composition -->
+      <div class="cz-left">
+        <div class="cz-hero" aria-label="Preview composition">
+          <!-- Back brand vector -->
+          <img class="cz-bg cz-bg-vector" src="/customization/assets/Vector.png" alt="" aria-hidden="true">
+
+          <!-- Dark arc -->
+          <img class="cz-bg cz-bg-arc" src="/customization/assets/arc_left.png" alt="" aria-hidden="true">
+
+          <!-- Marble plate -->
+          <img class="cz-bg cz-bg-plate" src="/customization/assets/plate.png" alt="" aria-hidden="true">
+
+          <!-- Sandwich (changes via JS) -->
+          <img
+            id="previewImg"
+            class="cz-preview"
+            src="/customization/assets/base.png"
+            alt="Custom preview"
+          />
+
+          <!-- Light leaf (front accent) -->
+          <img class="cz-bg cz-bg-leaf" src="/customization/assets/leaf.png" alt="" aria-hidden="true">
+        </div>
+      </div>
+
+      <!-- Right: green summary card -->
+      <aside class="cz-card">
+        <h2 class="cz-card-title">Usual Sando</h2>
+
+        <div id="chips" class="cz-chips"></div>
+
+        <div class="cz-macros">
+          <div class="cz-macro"><span>Calories:</span> <b id="mCalories">100</b> kcal</div>
+          <div class="cz-macro"><span>Protein:</span> <b id="mProtein">10</b> g</div>
+          <div class="cz-macro"><span>Carbs:</span> <b id="mCarbs">12</b> g</div>
+          <div class="cz-macro"><span>Fats:</span> <b id="mFats">5</b> g</div>
+        </div>
+
+        <div class="cz-bottom">
+          <div class="cz-total">Total: <span id="totalPrice">5 $</span></div>
+          <button id="addToCartBtn" class="cz-add" type="button">Add to cart</button>
+        </div>
+
+        <div id="custMsg" class="cz-msg" aria-live="polite"></div>
+      </aside>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+
+  <script src="/common.js"></script>
+  <script>
+    loadHTML("header", "/common_elements/header.html");
+    loadHTML("footer", "/common_elements/footer.html");
+  </script>
+
+  <script src="/customization/customization.js"></script>
+</body>
+</html>

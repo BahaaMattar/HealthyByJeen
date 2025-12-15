@@ -116,52 +116,61 @@
   </main>
 
   <!-- BMR POPUP -->
-  <div id="bmrModal" class="modal-overlay">
-    <div class="modal-card">
-      <button class="modal-close" id="closeBmr">&times;</button>
-      <h2 class="modal-title">Calculate your BMR</h2>
+  <div id="bmrModal" class="hbj-auth-overlay" aria-hidden="true">
+  <div class="hbj-auth-card" role="dialog" aria-modal="true" onclick="event.stopPropagation()">
 
-      <form id="bmrForm">
-        <div class="field2">
-          <label>Gender</label>
-          <select id="gender" required>
-            <option value="">Select</option>
-            <option value="Female">Female</option>
-            <option value="Male">Male</option>
-          </select>
-        </div>
+    <button class="hbj-auth-close" type="button" onclick="closeBmrModal()" aria-label="Close">✕</button>
 
-        <div class="field2">
-          <label>Age</label>
-          <input id="age" type="number" min="1" required>
-        </div>
+    <div class="hbj-title">Let’s calculate your BMR</div>
 
-        <div class="field2">
-          <label>Height (cm)</label>
-          <input id="height" type="number" min="1" required>
-        </div>
+    <form id="hbjBmrForm">
+      <div class="hbj-field">
+        <div class="hbj-label">Gender</div>
+        <select class="hbj-input" id="hbjBmrGender" required>
+          <option value="" selected disabled>Select</option>
+          <option>Female</option>
+          <option>Male</option>
+        </select>
+      </div>
 
-        <div class="field2">
-          <label>Weight (kg)</label>
-          <input id="weight" type="number" min="1" required>
-        </div>
+      <div class="hbj-field">
+        <div class="hbj-label">Age</div>
+        <select class="hbj-input" id="hbjBmrAge" required>
+          <option value="" selected disabled>Select</option>
+          <option value="18-35">18-35</option>
+          <option value="35-60">35-60</option>
+          <option value="60+">60+</option>
+        </select>
+      </div>
 
-        <div class="field2">
-          <label>Activity Level</label>
-          <select id="activity" required>
-            <option value="">Select</option>
-            <option value="1.2">Sedentary</option>
-            <option value="1.375">Slightly active</option>
-            <option value="1.55">Moderately active</option>
-            <option value="1.725">Highly active</option>
-          </select>
-        </div>
+      <div class="hbj-field">
+        <div class="hbj-label">Height (cm)</div>
+        <input class="hbj-input" id="hbjBmrHeight" type="number" min="50" max="250" required />
+      </div>
 
-        <button class="btn-primary" type="submit">Calculate</button>
-        <p id="bmrResult" class="subtext"></p>
-      </form>
-    </div>
+      <div class="hbj-field">
+        <div class="hbj-label">Weight (kg)</div>
+        <input class="hbj-input" id="hbjBmrWeight" type="number" min="20" max="300" required />
+      </div>
+
+      <div class="hbj-field">
+        <div class="hbj-label">Activity Level</div>
+        <select class="hbj-input" id="hbjBmrActivity" required>
+          <option value="" selected disabled>Select</option>
+          <option value="1.375">Slightly active</option>
+          <option value="1.55">Moderately active</option>
+          <option value="1.725">Highly active</option>
+        </select>
+      </div>
+
+      <button class="hbj-btn" type="submit">Calculate</button>
+
+      <!-- optional result text area (Component 75 shows explanation + result) -->
+      <div id="hbjBmrResult" class="hbj-success" style="display:none; margin-top:14px; line-height:1.35;"></div>
+    </form>
+
   </div>
+</div>
 
   <script src="profile.js"></script>
 </body>
