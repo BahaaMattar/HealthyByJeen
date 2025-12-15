@@ -242,68 +242,6 @@
             margin: 0 auto 20px;
         }
 
-        .product-card {
-            text-align: left;
-            position: relative;
-            transition: opacity 0.3s ease, transform 0.3s ease;
-        }
-
-        .product-card img {
-            width: 100%;
-            max-width: 300px;
-            margin: 0 auto;
-            display: block;
-            z-index: 10;
-        }
-
-        .product-info {
-            background: #98CB66;
-            border-radius: 30px;
-            padding: 80px 25px 25px;
-            margin-top: -60px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .product-name {
-            font-size: 18px;
-            font-weight: bold;
-            color: white;
-            margin-bottom: 10px;
-        }
-
-        .product-description {
-            color: white;
-            font-size: 13px;
-            margin-bottom: 15px;
-            line-height: 1.5;
-        }
-
-        .product-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .product-calories {
-            color: white;
-            font-size: 14px;
-        }
-
-        .add-button {
-            width: 35px;
-            height: 35px;
-            background: #006844;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            font-size: 20px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
         .best-sellers .cta-button {
             margin-top: 40px;
         }
@@ -354,23 +292,6 @@
                 gap: 30px;
                 max-width: 400px;
             }
-
-            .product-card img {
-                max-width: 250px;
-            }
-
-            .product-info {
-                padding: 60px 20px 20px;
-                margin-top: -50px;
-            }
-
-            .product-name {
-                font-size: 16px;
-            }
-
-            .product-description {
-                font-size: 12px;
-            }
         }
 
         /* Small Mobile */
@@ -383,9 +304,6 @@
                 width: 100%;
             }
 
-            .product-card img {
-                max-width: 220px;
-            }
         }
 
         /* Story Section */
