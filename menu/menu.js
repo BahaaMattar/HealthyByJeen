@@ -1,13 +1,27 @@
 document.addEventListener('DOMContentLoaded', () => {
     const addToCartButtons = document.querySelectorAll('.add-to-cart');
 
+    // Helper to check if it's the customize card
+    function isCustomizeCard(card) {
+        const title = card.querySelector('h3').innerText;
+        return title.includes('Customize Your Own Plate');
+    }
+
+    // 1. Handle "Add to Cart" buttons
     addToCartButtons.forEach(button => {
         button.addEventListener('click', (event) => {
             // Prevent default button behavior
             event.preventDefault();
+            event.stopPropagation(); // Stop bubbling to card click
 
             // Find the parent card
             const card = button.closest('.menu-card');
+
+            // Check if this is the "Customize Your Own Plate" card
+            if (isCustomizeCard(card)) {
+                window.location.href = '/customization/customization.html';
+                return;
+            }
 
             // Extract item details
             const title = card.querySelector('h3').innerText;
@@ -22,13 +36,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 id: title.replace(/\s+/g, '-').toLowerCase(),
                 name: title,
                 price: price,
-                image: imageSrc, // Path relative to menu page, might need adjustment for cart page if not absolute or root-relative
+                image: imageSrc, // Path relative to menu page
                 description: description,
                 quantity: 1
             };
 
             addToCart(item, button);
         });
+    });
+
+    // 2.  Customize Your Own Plate" card clickable
+    const allCards = document.querySelectorAll('.menu-card');
+    allCards.forEach(card => {
+        if (isCustomizeCard(card)) {
+            card.style.cursor = 'pointer';
+            card.addEventListener('click', () => {
+                window.location.href = '/customization/customization.html';
+            });
+        }
     });
 
     function addToCart(newItem, btnElement) {
@@ -43,10 +68,10 @@ document.addEventListener('DOMContentLoaded', () => {
             cart.push(newItem);
         }
 
-        // Save back to localStorage
+
         localStorage.setItem('cartItems', JSON.stringify(cart));
 
-        // Simple feedback
+
         console.log(`${newItem.name} added to cart!`);
 
         // Trigger animation and then update count
@@ -56,8 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function animateItemToCart(startElement, callback) {
-        // Find the visible cart icon
-        // 1. Check mobile icon first (if visible)
+
         let cartIcon = document.querySelector('.mobile-header-cart .cart-wrapper img');
         if (!cartIcon || cartIcon.offsetParent === null) {
             // 2. Fallback to desktop icon

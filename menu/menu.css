@@ -43,12 +43,12 @@
             border: 2px solid #a3cf62;
             background: transparent;
             color: #4a4a4a;
-            /* Gray text inactive */
+
             font-family: 'Poppins', sans-serif;
             font-weight: 700;
             font-size: 1.1rem;
             border-radius: 12px;
-            /* Slightly squared gentler corners */
+
             cursor: pointer;
             transition: all 0.3s ease;
         }
@@ -114,11 +114,11 @@
         .cal-badge {
             position: absolute;
             top: 50px;
-            /* Lowered badge */
+
             right: -10px;
-            /* Hugs the bowl */
+
             background-color: #005c29;
-            /* Dark Green Badge */
+
             color: white;
             padding: 5px 12px;
             border-radius: 20px;
@@ -149,10 +149,10 @@
             line-height: 1.4;
             opacity: 0.9;
             min-height: 48px;
-            /* Fixed height for alignment */
+
         }
 
-        /* Footer (Price + Cart) */
+
         .card-footer {
             display: flex;
             justify-content: space-between;
@@ -185,10 +185,10 @@
 
         .add-to-cart img {
             width: 20px;
-            /* Adjust based on actual icon size */
+
             height: auto;
             filter: brightness(0) invert(1);
-            /* Ensure it's white */
+
         }
 
         /* Responsive */

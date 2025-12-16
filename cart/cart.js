@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial Render
     renderCart();
 
-    // ========== IN-PLACE CHECKOUT FUNCTIONALITY ==========
+    //  IN-PLACE CHECKOUT FUNCTIONALITY 
 
     const summaryView = document.getElementById('summary-view');
     const checkoutBtn = document.querySelector('.checkout-btn');

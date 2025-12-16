@@ -12,12 +12,12 @@ const imageMap = {
 
 // Presets (your values)
 const presets = {
-  base:          { price: 5,  cal: 100, p: 10, c: 12,   f: 5 },
-  eggs:          { price: 6,  cal: 200, p: 18, c: 15,   f: 8 },
-  eggs_cheese:   { price: 8,  cal: 250, p: 22, c: 20.5, f: 10 },
-  avocado:       { price: 10, cal: 312, p: 28, c: 20.5, f: 15 },
-  tomato:        { price: 11, cal: 325, p: 28, c: 20.5, f: 18.5 },
-  tomato_mustard:{ price: 10, cal: 548, p: 36, c: 26.5, f: 20.5 },
+  base: { price: 5, cal: 100, p: 10, c: 12, f: 5 },
+  eggs: { price: 6, cal: 200, p: 18, c: 15, f: 8 },
+  eggs_cheese: { price: 8, cal: 250, p: 22, c: 20.5, f: 10 },
+  avocado: { price: 10, cal: 312, p: 28, c: 20.5, f: 15 },
+  tomato: { price: 11, cal: 325, p: 28, c: 20.5, f: 18.5 },
+  tomato_mustard: { price: 10, cal: 548, p: 36, c: 26.5, f: 20.5 },
 };
 
 // ✅ SINGLE selection state (because you only exported 6 “final” images)
@@ -32,15 +32,15 @@ const state = {
 // DOM
 const previewImg = document.getElementById("previewImg");
 const totalPrice = document.getElementById("totalPrice");
-const mCalories  = document.getElementById("mCalories");
-const mProtein   = document.getElementById("mProtein");
-const mCarbs     = document.getElementById("mCarbs");
-const mFats      = document.getElementById("mFats");
-const chipsEl    = document.getElementById("chips");
-const custMsg    = document.getElementById("custMsg");
+const mCalories = document.getElementById("mCalories");
+const mProtein = document.getElementById("mProtein");
+const mCarbs = document.getElementById("mCarbs");
+const mFats = document.getElementById("mFats");
+const chipsEl = document.getElementById("chips");
+const custMsg = document.getElementById("custMsg");
 
 // --- map current state to one of your 6 images ---
-function computeKey(){
+function computeKey() {
   // tomato + mustard
   if (state.veggies === "tomato" && state.sauce === "mustard") return "tomato_mustard";
 
@@ -59,37 +59,37 @@ function computeKey(){
   return "base";
 }
 
-function labelFor(group, value){
+function labelFor(group, value) {
   const map = {
     plate: {
-      "sandwich":"Sandwich", "salad":"Salad", "shaker":"Shaker", "dessert":"Dessert"
+      "sandwich": "Sandwich", "salad": "Salad", "shaker": "Shaker", "dessert": "Dessert"
     },
     bread: {
-      "whole-wheat":"Whole wheat",
-      "high-protein":"High Protein bread",
-      "gluten-free":"Gluten Free",
-      "low-carb-wrap":"Low Carb Wrap"
+      "whole-wheat": "Whole wheat",
+      "high-protein": "High Protein bread",
+      "gluten-free": "Gluten Free",
+      "low-carb-wrap": "Low Carb Wrap"
     },
     protein: {
-      "eggs":"Eggs",
-      "eggs_cheese":"Cottage Cheese", // shown as chip like Figma
-      "none":""
+      "eggs": "Eggs",
+      "eggs_cheese": "Cottage Cheese", // shown as chip like Figma
+      "none": ""
     },
     veggies: {
-      "avocado":"Avocado", "tomato":"Tomato", "none":""
+      "avocado": "Avocado", "tomato": "Tomato", "none": ""
     },
     sauce: {
-      "mustard":"Mustard", "none":""
+      "mustard": "Mustard", "none": ""
     }
   };
   return (map[group] && map[group][value] !== undefined) ? map[group][value] : value;
 }
 
-function clearChips(){
+function clearChips() {
   chipsEl.innerHTML = "";
 }
 
-function addChip(group, value, onRemove){
+function addChip(group, value, onRemove) {
   const chip = document.createElement("div");
   chip.className = "cz-chip";
   chip.innerHTML = `
@@ -100,7 +100,7 @@ function addChip(group, value, onRemove){
   chipsEl.appendChild(chip);
 }
 
-function buildChips(){
+function buildChips() {
   clearChips();
 
   // bread always shown
@@ -154,23 +154,23 @@ function buildChips(){
   }
 }
 
-function render(){
+function render() {
   const key = computeKey();
 
   previewImg.src = ASSETS_DIR + (imageMap[key] || imageMap.base);
 
   const t = presets[key] || presets.base;
   totalPrice.textContent = `${t.price} $`;
-  mCalories.textContent  = t.cal;
-  mProtein.textContent   = t.p;
-  mCarbs.textContent     = t.c;
-  mFats.textContent      = t.f;
+  mCalories.textContent = t.cal;
+  mProtein.textContent = t.p;
+  mCarbs.textContent = t.c;
+  mFats.textContent = t.f;
 
   buildChips();
 }
 
 // --- Dropdown open/close ---
-function closeAllDropdowns(){
+function closeAllDropdowns() {
   document.querySelectorAll(".cz-dd.open").forEach(dd => dd.classList.remove("open"));
 }
 
@@ -219,22 +219,135 @@ document.querySelectorAll(".cz-dd-menu button").forEach(opt => {
 });
 
 // Add to cart
+// Add to cart with Animation
 document.getElementById("addToCartBtn").addEventListener("click", () => {
   const key = computeKey();
+  const currentPreset = presets[key] || presets.base;
+
+  // Construct description from state
+  const parts = [];
+  if (state.plate) parts.push(labelFor("plate", state.plate));
+  if (state.protein && state.protein !== 'none') parts.push(labelFor("protein", state.protein));
+  if (state.veggies && state.veggies !== 'none') parts.push(labelFor("veggies", state.veggies));
+  const description = parts.join(", ") || "Custom Plate";
+
   const item = {
-    name: "Usual Sando",
-    key,
-    selections: { ...state },
-    preview: ASSETS_DIR + (imageMap[key] || imageMap.base),
-    totals: presets[key] || presets.base,
+    id: `custom-${Date.now()}`,
+    name: "Customize Your Own Plate",
+    price: currentPreset.price,
+    image: ASSETS_DIR + (imageMap[key] || imageMap.base),
+    description: description,
+    quantity: 1,
+    // Store original selection data if needed later
+    customizationState: { ...state }
   };
 
-  const CART_KEY = "jeen_cart_v1";
-  const cart = JSON.parse(localStorage.getItem(CART_KEY) || "[]");
-  cart.push(item);
+  addToCart(item);
+});
+
+function addToCart(newItem) {
+  const CART_KEY = "cartItems"; // Use the standard cart key
+  let cart = JSON.parse(localStorage.getItem(CART_KEY)) || [];
+
+  // Check if identical custom item exists (optional complexity, for now just push new)
+  // For custom items, it's safer to just push new unless we do deep comparison
+  cart.push(newItem);
+
   localStorage.setItem(CART_KEY, JSON.stringify(cart));
 
-  custMsg.textContent = "Added to cart!";
-});
+  // Trigger animation
+  const startEl = document.getElementById("previewImg");
+  animateItemToCart(startEl, () => {
+    // Update UI after animation lands
+    if (typeof updateCartCount === 'function') {
+      updateCartCount();
+    }
+    custMsg.textContent = "Added to cart!";
+  });
+}
+
+function animateItemToCart(startElement, callback) {
+  // Find the visible cart icon
+  // 1. Check mobile icon first (if visible)
+  let cartIcon = document.querySelector('.mobile-header-cart .cart-wrapper img');
+  if (!cartIcon || cartIcon.offsetParent === null) {
+    // 2. Fallback to desktop icon
+    cartIcon = document.querySelector('.header-icons .cart-wrapper img');
+  }
+
+  // If no visible icon is found, just run callback immediately
+  if (!cartIcon || cartIcon.offsetParent === null) {
+    if (callback) callback();
+    return;
+  }
+
+  // Create the flying image clone
+  const flyImg = startElement.cloneNode();
+
+  // Get start and end positions
+  const startRect = startElement.getBoundingClientRect();
+  const endRect = cartIcon.getBoundingClientRect();
+
+  // Style the flying image initial state
+  flyImg.style.position = 'fixed';
+  flyImg.style.left = startRect.left + 'px';
+  flyImg.style.top = startRect.top + 'px';
+  flyImg.style.width = startRect.width + 'px';
+  flyImg.style.height = startRect.height + 'px';
+  flyImg.style.zIndex = '9999';
+  // flyImg.style.borderRadius = '50%'; // Keep original shape or make round? Menu uses round.
+  // The plate in customization is already quite roundish, strictly adhering to menu logic:
+  flyImg.style.borderRadius = '50%';
+  flyImg.style.opacity = '1';
+  flyImg.style.pointerEvents = 'none';
+  flyImg.style.objectFit = 'contain';
+
+  document.body.appendChild(flyImg);
+
+  // Define Keyframes for "Pop and Fly" (Copied from menu.js)
+  const keyframes = [
+    // Start: Original position
+    {
+      left: `${startRect.left}px`,
+      top: `${startRect.top}px`,
+      width: `${startRect.width}px`,
+      height: `${startRect.height}px`,
+      transform: 'scale(1)',
+      opacity: 1
+    },
+    // 20%: Pop Up and Scale Up (The Jump)
+    {
+      left: `${startRect.left}px`,
+      top: `${startRect.top - 50}px`, // Pop up 50px
+      width: `${startRect.width}px`,
+      height: `${startRect.height}px`,
+      transform: 'scale(1.1)', // Slight zoom
+      opacity: 1,
+      offset: 0.2 // Timing point
+    },
+    // 100%: End at Cart (Shrunk)
+    {
+      left: `${endRect.left}px`,
+      top: `${endRect.top}px`,
+      width: '30px',
+      height: '30px',
+      transform: 'scale(0.2)',
+      opacity: 0.5
+    }
+  ];
+
+  // Animate using Web Animations API
+  const animation = flyImg.animate(keyframes, {
+    duration: 600, // Faster: 600ms
+    easing: 'cubic-bezier(0.2, 0.8, 0.2, 1)', // Smooth dynamic easing
+    fill: 'forwards'
+  });
+
+  // Cleanup after animation
+  animation.onfinish = () => {
+    flyImg.remove();
+    if (callback) callback();
+  };
+}
 
 render();
