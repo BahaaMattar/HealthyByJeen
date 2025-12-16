@@ -27,7 +27,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const title = card.querySelector('h3').innerText;
             const priceText = card.querySelector('.price').innerText;
             const price = parseFloat(priceText.replace('$', ''));
-            const imageSrc = '../menu/' + card.querySelector('.card-image-wrapper img').getAttribute('src');
+
+            // Get raw src
+            const rawSrc = card.querySelector('.card-image-wrapper img').getAttribute('src');
+            // Normalize path: if it starts with /, it's already absolute/root-relative. If not, assume it's relative to menu/
+            const imageSrc = rawSrc.startsWith('/') ? rawSrc : '/menu/' + rawSrc;
+
             // Getting description for the cart page display
             const description = card.querySelector('.card-content p').innerText;
 
@@ -36,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 id: title.replace(/\s+/g, '-').toLowerCase(),
                 name: title,
                 price: price,
-                image: imageSrc, // Path relative to menu page
+                image: imageSrc,
                 description: description,
                 quantity: 1
             };
