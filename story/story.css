@@ -97,6 +97,11 @@ body {
   margin-bottom: 50px;
 }
 
+.values-section h3{
+  color: #006844 !important;
+}
+
+
 @media (max-width: 768px) {
   .story-section {
     flex-direction: column;

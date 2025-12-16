@@ -64,9 +64,9 @@
         transition: filter 0.2s ease, transform 0.2s ease;
     }
 
-    /* .icon:hover img {
+    .profile-icon:hover img {
         filter: brightness(0) invert(1);
-    } */
+    }
 
 
     .mobile-icons {
@@ -201,7 +201,7 @@
 
     @media (max-width: 880px) {
         .mobile-header-cart {
-            display: block;
+            /* display: block; */
             margin-left: auto;
             /* Push to right */
             margin-right: 20px;
@@ -278,7 +278,7 @@
 
     <!-- Desktop Only Icons -->
     <div class="header-icons" id="desktop-icons">
-        <div class="icon">
+        <div class="icon profile-icon">
             <button class="profile-btn" type="button" onclick="return hbOpenLogin(event, false);">Log in</button>
         </div>
         <div class="icon cart-wrapper">
@@ -300,7 +300,7 @@
         }
     }
 
-    // ✅ Safe opener: prevents navigation + stops bubbling (fixes “opens then disappears”)
+    //Safe opener: prevents navigation + stops bubbling (fixes “opens then disappears”)
     function hbOpenLogin(e, closeMenu) {
         if (e) {
             e.preventDefault();
